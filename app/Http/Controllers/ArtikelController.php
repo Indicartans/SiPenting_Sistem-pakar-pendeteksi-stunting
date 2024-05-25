@@ -15,7 +15,8 @@ class ArtikelController extends Controller
      */
     public function index()
     {
-        //
+        $keterangan = Artikel::all();
+        return view('admin.keterangan.keterangan', compact('keterangan'));
     }
 
     /**
@@ -36,7 +37,7 @@ class ArtikelController extends Controller
      */
     public function store(StoreArtikelRequest $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

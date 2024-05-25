@@ -3,9 +3,10 @@
 
     <div class="d-flex align-items-center justify-content-between">
         <a href="/dashboard" class="logo d-flex align-items-center">
-            <img src="assets/img/logo.png" alt="">
+            <img src="assets/img/sipenting-sm.png" alt="">
             <span class="d-none d-lg-block">Dashboard</span>
         </a>
+        <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
 
     <nav class="header-nav ms-auto">

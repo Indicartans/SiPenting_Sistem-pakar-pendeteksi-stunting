@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\DiagnosaController;
 use App\Http\Controllers\GejalaController;
 use App\Http\Controllers\KeputusanController;
@@ -62,6 +63,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/gejala', GejalaController::class);
     Route::resource('/depresi', TingkatDepresiController::class);
     Route::resource('/spk', DiagnosaController::class)->only('index');
+    Route::resource('/keterangan', ArtikelController::class);
     Route::resource('/pengetahuan', KeputusanController::class);
 });
 

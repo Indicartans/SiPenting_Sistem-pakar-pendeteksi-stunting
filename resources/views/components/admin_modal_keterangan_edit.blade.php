@@ -12,18 +12,16 @@
                 <form id="edit-depresi" action="" method="post">
                     @method('put')
                     @csrf
-                    <div class="input-form d-flex">
-                        <input type="hidden" name="id" id="id_depresi">
-                        <div class="form-floating mb-3 p-2 mx-2">
-                            <input type="text" class="form-control" id="kode-depresi" name="kode_depresi" readonly>
-                            <label for="kode-depresi">Kode Penyakit</label>
-                        </div>
-                        <div class="form-floating mb-3 p-2 mx-2">
-                            <input type="text" class="form-control" id="depresi" name="depresi">
-                            <label for="depresi">Penyakit</label>
-                        </div>
+                    <input type="hidden" name="id" id="id_depresi">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="kode-depresi" name="kode_depresi" readonly>
+                        <label for="kode-depresi">Kode Depresi</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">ubah</button>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="depresi" name="depresi">
+                        <label for="depresi">Depresi</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Ubah</button>
                 </form>
             </div>
             <div class="modal-footer">
@@ -40,27 +38,25 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Penyakit</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Keterangan</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                {{-- form edit --}}
-                <form id="tambah-depresi" action="{{ route('depresi.store') }}" method="post">
+                {{-- form --}}
+                <form id="tambah-depresi" action="{{ route('keterangan.store') }}" method="post">
+                    @method('post')
                     @csrf
-                    <div class="input-form d-flex">
-                        <input type="hidden" name="id" id="id_depresi">
-                        <div class="form-floating mb-3 p-2 mx-2">
-                            <input type="text" class="form-control" id="kode-depresi" name="kode_depresi"
-                                placeholder="kode depresi" required>
-                            <label for="kode-depresi">Kode Penyakit</label>
-                        </div>
-                        <div class="form-floating mb-3 p-2 mx-2">
-                            <input type="text" class="form-control" id="depresi" name="depresi"
-                                placeholder="depresi" required>
-                            <label for="depresi">Penyakit</label>
-                        </div>
+                    <input type="hidden" name="id" id="id_depresi">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="kode-depresi" name="judul"
+                            placeholder="kode depresi" required>
+                        <label for="kode-depresi">Nama Penyakit</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">simpan</button>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="depresi" name="isi" style="height: 100px;"></textarea>
+                        <label for="depresi">Detail Penyakit</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
             </div>
             <div class="modal-footer">

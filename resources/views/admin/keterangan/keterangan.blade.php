@@ -1,5 +1,5 @@
 @extends('admin.admin_main')
-@section('title', 'Stunting')
+@section('title', 'Gejala')
 
 {{-- isi --}}
 @section('admin_content')
@@ -20,25 +20,25 @@
                     </div>
                 @endif
                 <div class="mt-2 pt-3 d-flex ms-auto">
-                    <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#depresiModal">
-                        <i class="bi bi-plus-circle-fill"> Tambah Penyakit</i>
+                    <button class="btn btn-outline-success mb-4" data-bs-toggle="modal" data-bs-target="#depresiModal">
+                        <i class="bi bi-plus-circle-fill"> Tambah Keterangan</i>
                     </button>
                 </div>
                 <table id="tabel-gejala" class="table table-bordered table-hover my-2">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Kode Penyakit</th>
-                            <th scope="col">Penyakit</th>
+                            <th scope="col">Nama Penyakit</th>
+                            <th scope="col">Detail Penyakit</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($depresi as $item)
+                        @foreach ($keterangan as $item)
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
-                                <td>{{ $item->kode_depresi }}</td>
-                                <td>{{ $item->depresi }}</td>
+                                <td>{{ $item->judul }}</td>
+                                <td>{{ $item->isi }}</td>
                                 <td>
                                     <button class="btn btn-outline-info" data-bs-toggle="modal"
                                         data-bs-target="#exampleModal"
@@ -59,7 +59,7 @@
                     </tbody>
                 </table>
 
-                @include('components.admin_modal_depresi_edit')
+                @include('components.admin_modal_keterangan_edit')
             </div>
         </div>
     </div>

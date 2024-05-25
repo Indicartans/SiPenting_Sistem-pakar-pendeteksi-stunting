@@ -84,9 +84,9 @@ class TingkatDepresiController extends Controller
         ]);
         $status = TingkatDepresi::find($tingkatDepresi)->update($valid);
         if ($status) {
-            return redirect()->route('depresi.index')->with('pesan', '<div class="alert alert-success p-3 mt-3" role="alert">Daftar Depresi telah diupdate</div>');
+            return redirect()->route('depresi.index')->with('pesan', '<div class="alert alert-success p-3 mt-3" role="alert">Daftar Penyakit telah diupdate</div>');
         }
-        return redirect()->route('depresi.index')->with('pesan', '<div class="alert alert-warning p-3 mt-3" role="alert">Daftar Depresi gagal diupdate</div>');
+        return redirect()->route('depresi.index')->with('pesan', '<div class="alert alert-warning p-3 mt-3" role="alert">Daftar Penyakit gagal diupdate</div>');
     }
 
     /**
@@ -100,7 +100,7 @@ class TingkatDepresiController extends Controller
         // dd($tingkatDepresi);
         TingkatDepresi::find($tingkatDepresi)->delete();
         return redirect()->route('depresi.index')->with('pesan', '<div class="alert alert-success p-3 mt-3" role="alert">
-        Daftar Depresi telah dihapus
+        Daftar Penyakit telah dihapus
         </div>');
     }
 }

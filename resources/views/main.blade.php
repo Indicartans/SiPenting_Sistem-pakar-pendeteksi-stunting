@@ -34,6 +34,18 @@
 
     {{-- external js assets --}}
     @yield('js_external_assets')
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var toggleSidebarBtn = document.querySelector(".toggle-sidebar-btn");
+            var sidebar = document.getElementById("sidebar");
+
+            toggleSidebarBtn.addEventListener("click", function() {
+                sidebar.classList.toggle("active");
+            });
+        });
+    </script>
+
 </body>
 
 </html>

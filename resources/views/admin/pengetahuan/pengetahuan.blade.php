@@ -1,5 +1,5 @@
 @extends('admin.admin_main')
-@section('title', 'Gejala')
+@section('title', 'Pengetahuan')
 
 {{-- isi --}}
 @section('admin_content')
@@ -21,7 +21,7 @@
                 @endif
                 <div class="mt-2 pt-3 d-flex ms-auto">
                     <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#depresiModal">
-                        <i class="bi bi-plus-circle-fill"> Tambah Depresi</i>
+                        <i class="bi bi-plus-circle-fill"> Tambah Pengetahuan</i>
                     </button>
                 </div>
                 <table id="tabel-gejala" class="table table-bordered table-hover my-2">
