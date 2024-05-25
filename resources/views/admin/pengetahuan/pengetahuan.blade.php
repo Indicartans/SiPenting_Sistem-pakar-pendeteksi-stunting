@@ -50,7 +50,8 @@
                                 '{{ $item->gejala->gejala }}', '{{ $item->mb }}', '{{ $item->md }}'), actionUbahdepresi('{{ route('pengetahuan.update', $item->id) }}')">
                                         <i class="bi bi-pencil-square"></i>
                                     </button>
-                                    <form action="{{ route('depresi.destroy', $item) }}" class="d-inline" method="POST">
+                                    <form action="{{ route('pengetahuan.destroy', $item) }}" class="d-inline"
+                                        method="POST">
                                         @method('DELETE')
                                         @csrf()
                                         <button type="submit" class="btn btn-outline-danger">

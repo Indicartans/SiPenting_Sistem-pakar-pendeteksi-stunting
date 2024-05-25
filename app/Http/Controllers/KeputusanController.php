@@ -41,7 +41,18 @@ class KeputusanController extends Controller
      */
     public function store(StoreKeputusanRequest $request)
     {
-        //
+        // dd($request->all());
+        $valid = $request->validate([
+            'kode_depresi' => 'required',
+            'kode_gejala' => 'required',
+            'mb' => 'required|numeric',
+            'md' => 'required|numeric'
+        ]);
+
+        Keputusan::create($valid);
+        return redirect()->route('pengetahuan.index')->with('pesan', '<div class="alert alert-success p-3 mt-3" role="alert">
+        Keputusan telah ditambahkan
+        </div>');
     }
 
     /**
@@ -113,8 +124,12 @@ class KeputusanController extends Controller
      * @param  \App\Models\Keputusan  $keputusan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Keputusan $keputusan)
+    public function destroy($keputusan)
     {
-        //
+        // dd($keputusan);
+        Keputusan::find($keputusan)->delete();
+        return redirect()->route('pengetahuan.index')->with('pesan', '<div class="alert alert-success p-3 mt-3" role="alert">
+        pengetahuan telah dihapus
+        </div>');
     }
 }

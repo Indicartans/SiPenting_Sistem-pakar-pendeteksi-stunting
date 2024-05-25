@@ -65,20 +65,41 @@
             </div>
             <div class="modal-body">
                 {{-- form tambah --}}
-                <form id="tambah-depresi" action="{{ route('depresi.store') }}" method="post">
+                <form id="edit-depresi" action="{{ route('pengetahuan.store') }}" method="post">
+                    @method('post')
                     @csrf
                     <input type="hidden" name="id" id="id_depresi">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="kode-depresi" name="kode_depresi"
-                            placeholder="Kode Depresi" required>
-                        <label for="kode-depresi">Kode Depresi</label>
+                        <select class="form-select" id="kode-depresi" name="kode_depresi">
+                            <option value="" selected disabled>Pilih Penyakit</option>
+                            {{-- Loop through penyakit options --}}
+                            @foreach ($penyakit as $p)
+                                <option value="{{ $p->kode_depresi }}">{{ $p->depresi }}</option>
+                            @endforeach
+                        </select>
+                        <label for="kode-depresi">Penyakit</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="depresi" name="depresi" placeholder="Depresi"
-                            required>
-                        <label for="depresi">Depresi</label>
+                        <select class="form-select" id="depresi" name="kode_gejala">
+                            <option value="" selected disabled>Pilih Gejala</option>
+                            {{-- Loop through gejala options --}}
+                            @foreach ($gejala as $g)
+                                <option value="{{ $g->kode_gejala }}">{{ $g->gejala }}</option>
+                            @endforeach
+                        </select>
+                        <label for="depresi">Gejala</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="mb" name="mb" placeholder="MB"
+                            required>
+                        <label for="mb">MB</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="md" name="md" placeholder="MD"
+                            required>
+                        <label for="md">MD</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Tambah Keputusan</button>
                 </form>
             </div>
             <div class="modal-footer">
