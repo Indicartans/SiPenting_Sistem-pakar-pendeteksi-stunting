@@ -40,13 +40,11 @@
                                 <td>{{ $item->judul }}</td>
                                 <td>{{ $item->isi }}</td>
                                 <td>
-                                    <button class="btn btn-outline-info" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal"
-                                        onclick="updateInput('{{ $item->id }}',
-                                '{{ $item->kode_depresi }}', '{{ $item->depresi }}'), actionUbahdepresi('{{ route('depresi.update', $item->id) }}')">
+                                    <button class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#editModal"
+                                        onclick="updateInput('{{ $item->judul }}', '{{ $item->isi }}', '{{ route('keterangan.update', $item->id) }}')">
                                         <i class="bi bi-pencil-square"></i>
                                     </button>
-                                    <form action="{{ route('depresi.destroy', $item) }}" class="d-inline" method="POST">
+                                    <form action="{{ route('keterangan.destroy', $item) }}" class="d-inline" method="POST">
                                         @method('DELETE')
                                         @csrf()
                                         <button type="submit" class="btn btn-outline-danger">

@@ -67,7 +67,9 @@ class ArtikelController extends Controller
         ]);
 
         // Redirect atau lakukan sesuatu setelah penyimpanan berhasil
-        return redirect()->route('keterangan.index')->with('success', 'Keterangan berhasil ditambahkan.');
+        return redirect()->route('keterangan.index')->with('pesan', '<div class="alert alert-success p-3 mt-3" role="alert">
+        Keterangan telah ditambahkan
+        </div>');
     }
 
     /**
@@ -99,9 +101,33 @@ class ArtikelController extends Controller
      * @param  \App\Models\Artikel  $artikel
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateArtikelRequest $request, Artikel $artikel)
+    public function update(UpdateArtikelRequest $request, $artikel)
     {
-        //
+        // dd($request->all());
+
+        // Validasi data yang diterima
+        $valid = $request->validate([
+            'judul' => 'required',
+            'isi' => 'required',
+        ]);
+
+        // Debug untuk memastikan data validasi
+        // dd($valid);
+
+        // Update instance model $keputusan dengan data yang sudah divalidasi
+        $update = Artikel::find($artikel)->update($valid);
+        if ($update) {
+            return redirect()->route('keterangan.index')->with('pesan', '<div class="alert alert-success p-3 mt-3" role="alert">Keterangan telah diupdate</div>');
+        }
+        return redirect()->route('pengetahuan.index')->with('pesan', '<div class="alert alert-warning p-3 mt-3" role="alert">Keterangan gagal diupdate</div>');
+
+        // Debug untuk memastikan data telah diupdate
+        // dd($keputusan);
+
+        // Redirect ke halaman yang sesuai dengan pesan sukses
+        return redirect()->route('keterangan.index')->with('pesan', '<div class="alert alert-info p-3 mt-3" role="alert">
+        keterangan telah diperbarui
+        </div>');
     }
 
     /**
@@ -110,8 +136,11 @@ class ArtikelController extends Controller
      * @param  \App\Models\Artikel  $artikel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Artikel $artikel)
+    public function destroy($artikel)
     {
-        //
+        Artikel::find($artikel)->delete();
+        return redirect()->route('keterangan.index')->with('pesan', '<div class="alert alert-danger p-3 mt-3" role="alert">
+        Keterangan telah dihapus
+        </div>');
     }
 }

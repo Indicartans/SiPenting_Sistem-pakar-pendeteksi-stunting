@@ -1,35 +1,35 @@
 <!-- Modal Edit depresi -->
-<div class="modal fade modal-fullscreen-md-down" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<!-- Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Depresi</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                {{-- form --}}
-                <form id="edit-depresi" action="" method="post">
-                    @method('put')
-                    @csrf
-                    <input type="hidden" name="id" id="id_depresi">
+            <form id="editForm" action="" method="POST">
+                @method('PUT')
+                @csrf
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Penyakit</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="kode-depresi" name="kode_depresi" readonly>
-                        <label for="kode-depresi">Kode Depresi</label>
+                        <input type="text" class="form-control" id="edit-judul" name="judul"
+                            placeholder="Nama Penyakit" required>
+                        <label for="edit-judul">Nama Penyakit</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="depresi" name="depresi">
-                        <label for="depresi">Depresi</label>
+                        <textarea class="form-control" id="edit-isi" name="isi" style="height: 100px;" required></textarea>
+                        <label for="edit-isi">Detail Penyakit</label>
                     </div>
                     <button type="submit" class="btn btn-primary">Ubah</button>
-                </form>
-            </div>
+                </div>
+            </form>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
+
 {{-- end modal edit depresi --}}
 
 {{-- modal tambah depresi --}}
@@ -75,27 +75,9 @@
 {{-- end modal tambah depresi --}}
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const namaPenyakitSelect = document.getElementById('nama-penyakit');
-        const kodeDepresiInput = document.getElementById('kode-depresi');
-
-        namaPenyakitSelect.addEventListener('change', function() {
-            const selectedOption = namaPenyakitSelect.options[namaPenyakitSelect.selectedIndex];
-            const kodeDepresi = selectedOption.getAttribute('data-kode');
-            kodeDepresiInput.value = kodeDepresi;
-        });
-    });
-
-    function updateInput(iddepresi, kode, depresi) {
-        document.getElementById("kode-depresi").value = kode;
-        document.getElementById("depresi").value = depresi;
-        document.getElementById("id_depresi").value = iddepresi;
-    }
-
-    function actionUbahdepresi(params) {
-        const formdepresi = document.getElementById('edit-depresi');
-        formdepresi.setAttribute('action', params);
-        formdepresi.setAttribute('method', 'POST');
-        console.log(formdepresi);
+    function updateInput(judul, isi, actionUrl) {
+        document.getElementById('edit-judul').value = judul;
+        document.getElementById('edit-isi').value = isi;
+        document.getElementById('editForm').action = actionUrl;
     }
 </script>
