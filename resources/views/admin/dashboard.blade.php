@@ -49,7 +49,7 @@
                         <div class="col-xxl-4 col-md-6">
                             <div class="card info-card revenue-card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Gangguan <span>| Depresi</span></h5>
+                                    <h5 class="card-title">Gangguan <span>| Stunting</span></h5>
                                     <div class="d-flex align-items-center">
                                         <div
                                             class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -131,14 +131,14 @@
                             <div class="card top-selling overflow-auto">
 
                                 <div class="card-body pb-0">
-                                    <h5 class="card-title">Gangguan <span>| Depresi</span></h5>
+                                    <h5 class="card-title">Gangguan <span>| Stunting</span></h5>
 
                                     <table class="table table-borderless">
                                         <thead>
                                             <tr>
                                                 <th scope="col">Id</th>
                                                 <th scope="col">Kode depresi</th>
-                                                <th scope="col">Tinkat depresi</th>
+                                                <th scope="col">Tingkat depresi</th>
                                             </tr>
                                         </thead>
                                         <tbody>

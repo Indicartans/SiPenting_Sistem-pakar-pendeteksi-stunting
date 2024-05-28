@@ -48,16 +48,23 @@
                     @csrf
                     <input type="hidden" name="id" id="id_depresi">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="kode-depresi" name="judul"
-                            placeholder="kode depresi" required>
-                        <label for="kode-depresi">Nama Penyakit</label>
+                        <select class="form-control" id="nama-penyakit" name="kode_depresi" required>
+                            <option value="" disabled selected>Pilih Nama Penyakit</option>
+                            @foreach ($penyakit as $p)
+                                <option value="{{ $p->kode_depresi }}">{{ $p->depresi }}</option>
+                            @endforeach
+                        </select>
+                        <label for="nama-penyakit">Nama Penyakit</label>
                     </div>
+
                     <div class="form-floating mb-3">
                         <textarea class="form-control" id="depresi" name="isi" style="height: 100px;"></textarea>
                         <label for="depresi">Detail Penyakit</label>
                     </div>
+
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -68,6 +75,17 @@
 {{-- end modal tambah depresi --}}
 
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const namaPenyakitSelect = document.getElementById('nama-penyakit');
+        const kodeDepresiInput = document.getElementById('kode-depresi');
+
+        namaPenyakitSelect.addEventListener('change', function() {
+            const selectedOption = namaPenyakitSelect.options[namaPenyakitSelect.selectedIndex];
+            const kodeDepresi = selectedOption.getAttribute('data-kode');
+            kodeDepresiInput.value = kodeDepresi;
+        });
+    });
+
     function updateInput(iddepresi, kode, depresi) {
         document.getElementById("kode-depresi").value = kode;
         document.getElementById("depresi").value = depresi;

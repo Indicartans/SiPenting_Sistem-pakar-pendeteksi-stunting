@@ -51,6 +51,14 @@
             </a>
         </li><!-- End Depresi Page Nav -->
 
+        <li class="nav-item">
+            <a class="nav-link {{ request()->is('pengetahuan') ? '' : 'collapsed' }} {{ request()->is('pengetahuan') ? 'active' : '' }}"
+                href="/keterangan">
+                <i class="bi bi-file-earmark-text"></i>
+                <span>Keterangan</span>
+            </a>
+        </li><!-- End Depresi Page Nav -->
+
         <li class="nav-heading">Pengaturan</li>
 
         <li class="nav-item">

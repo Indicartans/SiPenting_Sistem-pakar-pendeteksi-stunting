@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Artikel;
 use App\Http\Requests\StoreArtikelRequest;
 use App\Http\Requests\UpdateArtikelRequest;
+use App\Models\TingkatDepresi;
+use Clockwork\Request\Request;
 
 class ArtikelController extends Controller
 {
@@ -16,7 +18,8 @@ class ArtikelController extends Controller
     public function index()
     {
         $keterangan = Artikel::all();
-        return view('admin.keterangan.keterangan', compact('keterangan'));
+        $penyakit = TingkatDepresi::all();
+        return view('admin.keterangan.keterangan', compact('keterangan', 'penyakit'));
     }
 
     /**
@@ -37,7 +40,34 @@ class ArtikelController extends Controller
      */
     public function store(StoreArtikelRequest $request)
     {
-        dd($request->all());
+        // dd($request->all());
+        $request->validate([
+            'kode_depresi' => 'required',
+            'isi' => 'required'
+        ]);
+
+        // Cari entri berdasarkan kode_depresi
+        $penyakit = TingkatDepresi::where('kode_depresi', $request->kode_depresi)->first();
+
+        // Jika penyakit ditemukan, ambil judulnya
+        if ($penyakit) {
+            $judul = $penyakit->depresi;
+            // dd($judul);
+        } else {
+            // Tangani kasus di mana kode_depresi tidak ditemukan (misalnya, lempar error atau set judul default)
+            return redirect()->back()->withErrors(['kode_depresi' => 'Kode Depresi tidak ditemukan.']);
+        }
+
+        // Buat entri baru di tabel artikel
+        Artikel::create([
+            'kode_depresi' => $request->kode_depresi,
+            'judul' => $judul,
+            'isi' => $request->isi,
+            'url_gambar' => "https://source.unsplash.com/1600x900/?{$judul}"
+        ]);
+
+        // Redirect atau lakukan sesuatu setelah penyimpanan berhasil
+        return redirect()->route('keterangan.index')->with('success', 'Keterangan berhasil ditambahkan.');
     }
 
     /**
