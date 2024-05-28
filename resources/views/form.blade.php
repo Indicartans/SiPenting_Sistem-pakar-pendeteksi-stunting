@@ -120,7 +120,7 @@
                 <div class="wrap medium">
                     <div class="page-intro">
                         <form method='post' enctype='multipart/form-data' id='gform_1'
-                            action="{{ route('spk.store') }}" novalidate>
+                            action="{{ route('spk.store') }}">
                             @csrf
                             <ol class="screen-progress-bar clearfix step-2-of-3">
                                 <li class="step-1"><span>Informasi<br />Tes</span></li>
@@ -181,6 +181,7 @@
                                 </div>
                             </div>
                         </form>
+
                     </div>
                     <p>&nbsp;</p>
                     <hr />
@@ -188,11 +189,18 @@
     </div>
     </article>
     </main>
-    <footer id="footer" class="clear">
-        <div id="smart-footer">
-
+    <footer id="footer" class="clear bg-dark py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 rights my-3 text-light text-center">
+                    <p>© 2023 SiPenting. Developed by <a href="https://instagram.com/alfaindicadz" class="text-light"
+                            target="blank">Alfa Indica Dzoriful Khazim</a> &
+                        <a href="https://www.instagram.com/wahyuindra11_/" class="text-light" target="blank">Wahyu
+                            Indra Permana</a>
+                    </p>
+                </div>
+            </div>
         </div>
-
     </footer>
     </div>
 

@@ -1,5 +1,5 @@
 @extends('admin.admin_main')
-@section('title', 'Gejala')
+@section('title', 'Keterangan')
 
 {{-- isi --}}
 @section('admin_content')

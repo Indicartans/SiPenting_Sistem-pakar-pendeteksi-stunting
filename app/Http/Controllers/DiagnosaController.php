@@ -58,6 +58,7 @@ class DiagnosaController extends Controller
      */
     public function store(StoreDiagnosaRequest $request)
     {
+        // dd($request->all());
         $filteredArray = $request->post('kondisi');
         $kondisi = array_filter($filteredArray, function ($value) {
             return $value !== null;

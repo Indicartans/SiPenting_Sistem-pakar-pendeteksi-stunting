@@ -1,5 +1,5 @@
 @extends('admin.admin_main')
-@section('title', 'Dashboard')
+@section('title', 'Tambah Admin')
 
 {{-- isi --}}
 @section('admin_content')
