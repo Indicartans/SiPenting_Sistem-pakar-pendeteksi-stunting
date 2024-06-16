@@ -12,6 +12,7 @@ use App\Models\Kode_Gejala;
 use App\Models\KondisiUser;
 use App\Models\TingkatDepresi;
 use GuzzleHttp\Middleware;
+use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
@@ -170,6 +171,10 @@ class DiagnosaController extends Controller
                 $int = floatval($val["value"]);
             }
         }
+
+        if (!isset($diagnosa_dipilih["kode_depresi"]) || empty($diagnosa_dipilih["kode_depresi"])) {
+            return redirect()->back()->with('error_message', 'Jawab minimal 1 pertanyaan.');
+        }
         // dd($diagnosa_dipilih);
         // dd($gejala);
 
@@ -179,6 +184,7 @@ class DiagnosaController extends Controller
         }
         // dd($kodeGejala);
         $kode_depresi = $diagnosa_dipilih["kode_depresi"]->kode_depresi;
+
         $pakar = Keputusan::whereIn("kode_gejala", $kodeGejala)->where("kode_depresi", $kode_depresi)->get();
         // dd($pakar);
         $gejala_by_user = [];

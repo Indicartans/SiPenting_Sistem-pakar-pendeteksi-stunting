@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en-US" class="no-js no-svg">
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
 <head>
     <meta charset="UTF-8">
@@ -62,25 +64,12 @@
 
     <link href='https://fonts.gstatic.com/' crossorigin='anonymous' rel='preconnect' />
     <link rel='stylesheet' id='dashicons-css' href='assets/img/sipenting-sm.png' media='all' />
-    <style>
-        .question {
-            display: none;
-        }
-
-        .question.active {
-            display: block;
-        }
-
-        .btn-prev {
-            border-radius: 20px 0px 20px 20px;
-        }
-    </style>
 </head>
 
 <body class="screen-template-default single single-screen postid-22 not-front">
     <div id="page" class="site">
         <header id="header" class="clearfix">
-            <div class="container bg-black">
+            <div class="container">
                 <div class="row align-items-center d-flex justify-content-between">
                     <div class="col-auto">
                         <a id="logo" href="/"><img src="/landing/img/SiPenting-logo.png" alt="SiPenting Logo"
@@ -90,6 +79,20 @@
                         <nav id="navigation" class="main-navigation" role="navigation" aria-label="Top Menu">
                             <div class="menu-main-menu-container">
                                 <ul id="main-menu" class="sf-menu d-flex justify-content-end">
+                                    {{-- <li id="menu-item-406"
+                                        class="heading left-col menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-406">
+                                        <a href="#">Diagnosa Stunting</a>
+                                        <ul class="sub-menu">
+                                            <li id="menu-item-16362"
+                                                class="wide bold menu-item menu-item-type-post_type menu-item-object-page menu-item-16362">
+                                                <a href="#">Gejala</a>
+                                            </li>
+                                            <li id="menu-item-3054"
+                                                class="wide bold menu-item menu-item-type-post_type menu-item-object-page menu-item-3054">
+                                                <a href="#">Depresi</a>
+                                            </li>
+                                        </ul>
+                                    </li> --}}
                                     <li id="menu-item-405"
                                         class="heading menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-405">
                                         <a href="/">Home</a>
@@ -109,9 +112,6 @@
                 </div>
             </div>
         </header>
-
-
-
         <main id="content" class="site-content">
             <article id="post-22" class="post-22 screen type-screen status-publish hentry condition-depression">
                 <div class="wrap normal">
@@ -119,18 +119,13 @@
                         <h1 class="entry-title text-center">Diagnosa Stunting</h1>
                     </div>
                 </div>
-                @if (session('error_message'))
-                    <div class="alert alert-danger text-center">
-                        {{ session('error_message') }}
-                    </div>
-                @endif
                 <div class="wrap medium">
                     <div class="page-intro">
                         <form method='post' enctype='multipart/form-data' id='gform_1'
                             action="{{ route('spk.store') }}">
                             @csrf
-                            <div class='gform_body gform-body'>
-                                <div class='gform_page' id='gform_page_1_1'>
+                            <div class='gform_body gform-body '>
+                                <div id='gform_page_1_1' class='gform_page'>
                                     <div class='gform_page_fields'>
                                         <ul id='gform_fields_1'
                                             class='gform_fields top_label form_sublabel_below description_above'>
@@ -139,16 +134,16 @@
                                                 data-js-reload="field_1_4">
                                                 <p><strong>Dari beberapa gejala di bawah ini</strong>, gejala mana yang
                                                     kemungkinan terjadi pada anak anda?</p>
-                                                <p>Tidak semua Pertanyaan harus dijawab, jadi pastikan untuk memberikan
-                                                    jawaban
-                                                    yang tepat sesuai dengan yang terjadi pada anak anda.</p>
+                                                <p>Tidak semua field harus diisi, jadi pastikan untuk memberikan jawaban
+                                                    yang tepat sesuai dengan pengalamanmu.</p>
                                             </li>
+
                                             @foreach ($gejala as $item)
                                                 <li id="field_{{ $loop->iteration }}"
                                                     class="gfield question gfield_contains_required field_sublabel_below field_description_above gfield_visibility_visible"
                                                     data-js-reload="field_{{ $loop->iteration }}">
                                                     <label class='gfield_label'>{{ $loop->iteration }}. Apakah anda
-                                                        merasa anak anda {{ $item->gejala }}?<span
+                                                        merasa anak anda {{ $item->gejala }} ?<span
                                                             class="gfield_required"><span
                                                                 class="gfield_required gfield_required_asterisk">*</span></span></label>
                                                     <div class='ginput_container ginput_container_radio'>
@@ -159,7 +154,7 @@
                                                                     <input name='input_{{ $loop->parent->iteration }}'
                                                                         type='radio' value='{{ $kondisi->nilai }}'
                                                                         id='choice_{{ $loop->parent->iteration }}_{{ $loop->iteration }}'
-                                                                        onchange="document.getElementById('kondisi_{{ $item->kode_gejala }}{{ $loop->parent->iteration }}').value = this.value; nextQuestion()" />
+                                                                        onchange="document.getElementById('kondisi_{{ $item->kode_gejala }}{{ $loop->parent->iteration }}').value = this.value" />
                                                                     <label
                                                                         for='choice_{{ $loop->parent->iteration }}_{{ $loop->iteration }}'
                                                                         id='label_{{ $loop->parent->iteration }}_{{ $loop->iteration }}'>{{ $kondisi->kondisi }}</label>
@@ -173,15 +168,12 @@
                                                     </div>
                                                 </li>
                                             @endforeach
+
+                                            <div class='gform_page_footer top_label'>
+                                                <button type="submit"
+                                                    class='gform_next_button button'>Submit</button>
+                                            </div>
                                         </ul>
-                                        <div class="gform_page_footer top_label">
-                                            <button type="button" id="prev-button" class="btn-prev">Kembali</button>
-                                            <button type="button" id="next-button"
-                                                class="gform_next_button button">Lanjut</button>
-                                            <button type="submit" id="submit-button"
-                                                class="gform_next_button button"
-                                                style="display: none;">Submit</button>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -194,67 +186,27 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 rights my-3 text-light text-center">
-                        <p>© 2024 SiPenting. Developed by <a href="https://instagram.com/alfaindicadz"
-                                class="text-light" target="blank">Alfa Indica Dzoriful Khazim</a> & <a
-                                href="https://www.instagram.com/wahyuindra11_/" class="text-light"
-                                target="blank">Wahyu Indra Permana</a></p>
+                        <p>© 2023 SiPenting. Developed by <a href="https://instagram.com/alfaindicadz"
+                                class="text-light" target="blank">Alfa Indica Dzoriful Khazim</a> &
+                            <a href="https://www.instagram.com/wahyuindra11_/" class="text-light"
+                                target="blank">Wahyu
+                                Indra Permana</a>
+                        </p>
                     </div>
                 </div>
             </div>
         </footer>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Menangkap semua klik di dalam dokumen
-            document.addEventListener('click', function(event) {
-                // Periksa apakah yang diklik adalah pesan error
-                var errorMessage = document.querySelector('.alert-danger');
-
-                // Jika pesan error ada dan klik dilakukan di luar pesan error
-                if (errorMessage && !errorMessage.contains(event.target)) {
-                    errorMessage.remove(); // Hapus pesan error
-                }
-            });
-        });
-
-        $(document).ready(function() {
-            let currentQuestion = 0;
-            const questions = $('.question');
-            const totalQuestions = questions.length;
-
-            function showQuestion(index) {
-                questions.removeClass('active');
-                $(questions[index]).addClass('active');
-                $('#prev-button').toggle(index > 0);
-                $('#next-button').toggle(index < totalQuestions - 1);
-                $('#submit-button').toggle(index === totalQuestions - 1);
-            }
-
-            $('#next-button').click(function() {
-                if (currentQuestion < totalQuestions - 1) {
-                    currentQuestion++;
-                    showQuestion(currentQuestion);
-                }
-            });
-
-            $('#prev-button').click(function() {
-                if (currentQuestion > 0) {
-                    currentQuestion--;
-                    showQuestion(currentQuestion);
-                }
-            });
-
-            window.nextQuestion = function() {
-                if (currentQuestion < totalQuestions - 1) {
-                    currentQuestion++;
-                    showQuestion(currentQuestion);
-                }
-            };
-
-            showQuestion(currentQuestion);
-        });
+    <script type="text/javascript">
+        (function() {
+            var sz = document.createElement('script');
+            sz.type = 'text/javascript';
+            sz.async = true;
+            sz.src = 'depresi-assets/google/siteimproveanalytics.com/js/siteanalyze_6229968.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(sz, s);
+        })();
     </script>
 </body>
 
