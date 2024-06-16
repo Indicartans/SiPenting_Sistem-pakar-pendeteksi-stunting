@@ -50,21 +50,24 @@
                 <div class="logo"></div>
             </a>
             <ul>
-                <li><a class="shadow-hover" href="/dashboard">Dashboard</a></li>
-                <li>
-                    <a class="shadow-hover" href="#">Menu</a>
-                    <ul>
-                        <li><a href="/form-faq">Diagnosa</a></li>
-                        <li><a href="/gejala">Gejala</a></li>
-                        <li><a href="/depresi">Depresi</a></li>
-                    </ul>
-                </li>
+                @auth
+                    <li><a class="shadow-hover" href="/dashboard">Dashboard</a></li>
+                    <li>
+                        <a class="shadow-hover" href="#">Menu</a>
+                        <ul>
+                            <li><a href="/form-faq">Diagnosa</a></li>
+                            <li><a href="/gejala">Gejala</a></li>
+                            <li><a href="/depresi">Depresi</a></li>
+                        </ul>
+                    </li>
+                @endauth
+                <li><a class="shadow-hover" href="/form-faq">Diagnosa</a></li>
                 <li><a class="shadow-hover" href="/artikel">Artikel</a></li>
                 <li><a class="shadow-hover" href="#faq">FAQ</a></li>
-                <li><a class="shadow-hover" href="#kontak">Kontak</a></li>
-                @guest
+                <li><a class="shadow-hover" href="/about">About</a></li>
+                {{-- @guest
                     <li><a class="shadow-hover" href="/login">Login</a></li>
-                @endguest
+                @endguest --}}
                 @auth
                     <li>
                         <a class="shadow-hover" href="{{ route('logout') }}"
@@ -162,62 +165,60 @@
                 <div class="accordion" id="faqAccordion">
                     <div class="card">
                         <div class="card-header" id="headingOne">
-                            <h2 class="mb-0">
+                            <h5 class="mb-0">
                                 <button class="btn btn-link" type="button" data-toggle="collapse"
                                     data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     Apa itu SiPenting?
                                 </button>
-                            </h2>
+                            </h5>
                         </div>
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                             data-parent="#faqAccordion">
                             <div class="card-body">
                                 SiPenting adalah sebuah situs yang membantu orangtua mengukur terjadinya stunting pada
-                                anak dengan
-                                mengisi formulir pertanyaan. Kami menyediakan solusi yang sesuai setelah orangtua
+                                anak dengan mengisi formulir pertanyaan. Kami menyediakan solusi yang sesuai setelah
+                                orangtua
                                 mengisi formulir tersebut.
                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-header" id="headingThree">
-                            <h2 class="mb-0">
+                            <h5 class="mb-0">
                                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
                                     data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
                                     style="white-space: normal">
                                     Apakah hasil dari SiPenting dapat diandalkan?
                                 </button>
-                            </h2>
+                            </h5>
                         </div>
                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                             data-parent="#faqAccordion">
                             <div class="card-body">
                                 Hasil dari SiPenting adalah sebuah estimasi dari tingkat terjadinya stunting pada anak,
-                                dan tidak
-                                bisa dianggap sebagai diagnosis yang pasti. Kami sangat menyarankan agar tetap meminta
-                                bantuan kepada
-                                seorang yang profesional seperti ahli gizi atau dokter anak.
+                                dan tidak bisa dianggap sebagai diagnosis yang pasti. Kami sangat menyarankan agar tetap
+                                meminta
+                                bantuan kepada seorang yang profesional seperti ahli gizi atau dokter anak.
                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-header" id="headingFour">
-                            <h2 class="mb-0">
+                            <h5 class="mb-0">
                                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
                                     data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"
                                     style="white-space: normal">
                                     Bagaimana cara mengakses solusi yang ditawarkan SiPenting?
                                 </button>
-                            </h2>
+                            </h5>
                         </div>
                         <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
                             data-parent="#faqAccordion">
                             <div class="card-body">
                                 Setelah mengisi formulir, Pengguna akan menerima rekomendasi solusi sesuai dengan
-                                penyakit yang
-                                terdeteksi. Kami juga menyediakan tautan ke sumber informasi dan bantuan profesional
-                                yang dapat
-                                membantu orangtua mengatasi penyakit yang terjadi pada anak.
+                                penyakit yang terdeteksi. Kami juga menyediakan tautan ke sumber informasi dan bantuan
+                                profesional
+                                yang dapat membantu orangtua mengatasi penyakit yang terjadi pada anak.
                             </div>
                         </div>
                     </div>

@@ -13,6 +13,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" href="assets/img/sipenting-sm.png">
     <link rel="apple-touch-icon" href="depresi-assets/apple-touch-icon.png">
+
+    {{-- bootstrap --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="depresi-assets/google/www.googleoptimize.com/optimize3af5.js?id=OPT-PNLZZ5R"></script>
     <script>
         (function(w, d, s, l, i) {
@@ -51,73 +55,70 @@
         media='all' />
     <script src='depresi-assets/wp-includes/js/jquery/jquery.mina7a0.js?ver=3.6.1' id='jquery-core-js'></script>
     <script src='depresi-assets/wp-includes/js/jquery/jquery-migrate.mind617.js?ver=3.3.2' id='jquery-migrate-js'></script>
+
+    <style>
+        .card-header h2 {
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+    </style>
 </head>
 
 <body class="screen-template-default single single-screen postid-22 not-front">
 
     <div id="page" class="site"> <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
         <header id="header" class="clearfix">
-            <div class="wrap normal"> <a id="logo" href="/"><img src="/landing/img/SiPenting-logo.png"
-                        alt="SiPenting Logo" /></a>
-                <nav id="navigation" class="main-navigation" role="navigation" aria-label="Top Menu">
-                    <div class="menu-main-menu-container">
-                        <ul id="main-menu" class="sf-menu">
-                            <li id="menu-item-406"
-                                class="heading left-col menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-406">
-                                <a href="#">Diagnosa Stunting</a>
-                                <ul class="sub-menu">
-                                    <li id="menu-item-16362"
-                                        class="wide bold menu-item menu-item-type-post_type menu-item-object-page menu-item-16362">
-                                        <a href="#">Gejala</a>
+            <div class="container">
+                <div class="row align-items-center d-flex justify-content-between">
+                    <div class="col-auto">
+                        <a id="logo" href="/"><img src="/landing/img/SiPenting-logo.png" alt="SiPenting Logo"
+                                class="img-fluid" /></a>
+                    </div>
+                    <div class="col">
+                        <nav id="navigation" class="main-navigation" role="navigation" aria-label="Top Menu">
+                            <div class="menu-main-menu-container">
+                                <ul id="main-menu" class="sf-menu d-flex justify-content-end">
+                                    {{-- <li id="menu-item-406"
+                                        class="heading left-col menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-406">
+                                        <a href="#">Diagnosa Stunting</a>
+                                        <ul class="sub-menu">
+                                            <li id="menu-item-16362"
+                                                class="wide bold menu-item menu-item-type-post_type menu-item-object-page menu-item-16362">
+                                                <a href="#">Gejala</a>
+                                            </li>
+                                            <li id="menu-item-3054"
+                                                class="wide bold menu-item menu-item-type-post_type menu-item-object-page menu-item-3054">
+                                                <a href="#">Depresi</a>
+                                            </li>
+                                        </ul>
+                                    </li> --}}
+                                    <li id="menu-item-405"
+                                        class="heading menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-405">
+                                        <a href="/">Home</a>
                                     </li>
-                                    <li id="menu-item-3054"
-                                        class="wide bold menu-item menu-item-type-post_type menu-item-object-page menu-item-3054">
-                                        <a href="#">Depresi</a>
+                                    <li id="menu-item-405"
+                                        class="heading menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-405">
+                                        <a href="/artikel">Artikel</a>
                                     </li>
-
+                                    <li id="menu-item-404"
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-404">
+                                        <a href="about">About</a>
+                                    </li>
                                 </ul>
-                            </li>
-                            <li id="menu-item-405"
-                                class="heading menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-405">
-                                <a href="/">Home</a>
-                            </li>
-                            <li id="menu-item-404"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-404"><a
-                                    href="">About</a></li>
-
-                        </ul>
+                            </div>
+                        </nav>
                     </div>
-                    <div class="menu-main-menu-buttons-container">
-                        <ul id="main-menu-buttons" class="menu">
-                            <li id="menu-item-400"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-400"><a
-                                    href="/form">Cek Resiko Stunting</a></li>
-                        </ul>
-                    </div>
-                </nav>
+                </div>
             </div>
         </header>
+
         <main id="content" class="site-content">
             <article id="post-22" class="post-22 screen type-screen status-publish hentry condition-depression">
-                <div class="wrap normal">
-                    <!-- <div class="bubble round-tl mobile-wide mint"><div class="inner"><h1>Take a Mental Health Test</h1><div class="text"><p>Online screening is one of the quickest and easiest ways to determine whether you are experiencing symptoms of a mental health condition.</p><p><strong>Mental health conditions, such as depression or anxiety, are real, common and treatable. And recovery is possible.</strong></p></div></div></div> -->
-
-                </div>
                 <div class="wrap medium">
                     <div class="page-intro">
-                        <div class='gf_browser_safari gform_wrapper gform_legacy_markup_wrapper' id='gform_wrapper_1'
-                            style='display:none'>
-                            <<div class='gform_heading'>
-                                <h3 class="gform_title">Cek Stunting</h3> <span class='gform_description'></span>
-                        </div>
                         <form method='post' enctype='multipart/form-data' id='gform_1'
                             action="{{ route('spk.store') }}" novalidate>
                             @csrf
-                            <ol class="screen-progress-bar clearfix step-1-of-3">
-                                <li class="step-1"><span>Informasi<br />Tes</span></li>
-                                <li class="step-2"><span>Pertanyaan<br />Tes</span></li>
-                                <li class="step-3"><span>Hasil<br />Anda</span></li>
-                            </ol>
                             <div class='gform_body gform-body '>
                                 <div id='gform_page_1_1' class='gform_page'>
                                     <div class='gform_page_fields'>
@@ -129,53 +130,41 @@
                                                     <div class="card">
                                                         <div class="card-header" id="headingOne">
                                                             <h2 class="mb-0">
-                                                                <button class="btn btn-link" type="button"
-                                                                    data-toggle="collapse" data-target="#collapseOne"
-                                                                    aria-expanded="true" aria-controls="collapseOne">
-                                                                    Apa itu Sipenting?
-                                                                </button>
+                                                                Apa itu Sipenting?
                                                             </h2>
                                                         </div>
-
                                                         <div id="collapseOne" class="collapse show"
                                                             aria-labelledby="headingOne" data-parent="#faqAccordion">
                                                             <div class="card-body">
                                                                 "SiPenting adalah aplikasi yang dirancang untuk membantu
-                                                                orang
-                                                                tua dalam mendeteksi potensi stunting pada anak dengan
-                                                                menyediakan sebuah sistem pakar yang memungkinkan
-                                                                pengguna untuk mengukur risiko
-                                                                stunting. Kami percaya bahwa mendeteksi dini potensi
-                                                                stunting adalah langkah
+                                                                orang tua dalam mendeteksi potensi
+                                                                stunting pada anak dengan menyediakan sebuah sistem
+                                                                pakar yang memungkinkan pengguna untuk
+                                                                mengukur risiko stunting. Kami percaya bahwa mendeteksi
+                                                                dini potensi stunting adalah langkah
                                                                 penting dalam mencegah dampak jangka panjangnya pada
-                                                                pertumbuhan dan
-                                                                perkembangan anak. Selain itu, kami juga menyediakan
-                                                                informasi dan sumber daya
-                                                                yang berguna untuk membantu orang tua dalam mengelola
-                                                                serta
-                                                                mengatasi risiko stunting pada anak."
+                                                                pertumbuhan dan perkembangan anak.
+                                                                Selain itu, kami juga menyediakan informasi dan sumber
+                                                                daya yang berguna untuk membantu
+                                                                orang tua dalam mengelola serta mengatasi risiko
+                                                                stunting pada anak."
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="card">
                                                         <div class="card-header" id="headingThree">
                                                             <h2 class="mb-0">
-                                                                <button class="btn btn-link collapsed" type="button"
-                                                                    data-toggle="collapse"
-                                                                    data-target="#collapseThree" aria-expanded="false"
-                                                                    aria-controls="collapseThree">
-                                                                    Apakah hasil dari SiPenting dapat diandalkan?
-                                                                </button>
+                                                                Apakah hasil dari SiPenting dapat diandalkan?
                                                             </h2>
                                                         </div>
                                                         <div id="collapseThree" class="collapse"
                                                             aria-labelledby="headingThree"
                                                             data-parent="#faqAccordion">
                                                             <div class="card-body">
-                                                                Hasil dari SiPenting adalah sebuah estimasi dari
-                                                                tingkat terjadinya stunting pada anak, dan tidak
-                                                                bisa dianggap sebagai diagnosis yang pasti. Kami sangat
-                                                                menyarankan agar tetap konsultasi
+                                                                Hasil dari SiPenting adalah sebuah estimasi dari tingkat
+                                                                terjadinya stunting pada anak, dan
+                                                                tidak bisa dianggap sebagai diagnosis yang pasti. Kami
+                                                                sangat menyarankan agar tetap konsultasi
                                                                 dokter profesional.
                                                             </div>
                                                         </div>
@@ -183,30 +172,25 @@
                                                     <div class="card">
                                                         <div class="card-header" id="headingFour">
                                                             <h2 class="mb-0">
-                                                                <button class="btn btn-link collapsed" type="button"
-                                                                    data-toggle="collapse" data-target="#collapseFour"
-                                                                    aria-expanded="false"
-                                                                    aria-controls="collapseFour">
-                                                                    Bagaimana cara mengakses solusi yang ditawarkan
-                                                                    SiPenting?
-                                                                </button>
+                                                                Bagaimana cara mengakses solusi yang ditawarkan
+                                                                SiPenting?
                                                             </h2>
                                                         </div>
                                                         <div id="collapseFour" class="collapse"
                                                             aria-labelledby="headingFour" data-parent="#faqAccordion">
                                                             <div class="card-body">
                                                                 Setelah mengisi formulir, pengguna akan menerima
-                                                                rekomendasi solusi sesuai dengan
-                                                                penyakit yang terdeteksi. Kami juga menyediakan
-                                                                tautan ke sumber informasi dan
-                                                                bantuan profesional yang dapat membantu pengguna.
+                                                                rekomendasi solusi sesuai dengan penyakit yang
+                                                                terdeteksi. Kami juga menyediakan tautan ke sumber
+                                                                informasi dan bantuan profesional yang
+                                                                dapat membantu pengguna.
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </section>
                                     </div>
-                                    </section>
                                 </div>
                                 </li>
 
@@ -218,34 +202,55 @@
 
                                 </ul>
                             </div>
-
+                        </form>
                     </div>
                 </div>
-                </form>
-    </div>
-    <p>&nbsp;</p>
-    {{-- <hr /> --}}
-
-    </div>
-    </div>
-    </article>
-    </main>
-    <footer id="footer" class="clear bg-dark py-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 rights my-3 text-light text-center">
-                    <p>© 2023 SiPenting. Developed by <a href="https://instagram.com/alfaindicadz" class="text-light"
-                            target="blank">Alfa Indica Dzoriful Khazim</a> &
-                        <a href="https://www.instagram.com/wahyuindra11_/" class="text-light" target="blank">Wahyu
-                            Indra Permana</a>
-                    </p>
+            </article>
+        </main>
+        <footer id="footer" class="clear bg-dark py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 rights my-3 text-light text-center">
+                        <p>© 2023 SiPenting. Developed by <a href="https://instagram.com/alfaindicadz"
+                                class="text-light" target="blank">Alfa Indica Dzoriful Khazim</a> &
+                            <a href="https://www.instagram.com/wahyuindra11_/" class="text-light"
+                                target="blank">Wahyu
+                                Indra Permana</a>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
 
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var headers = document.querySelectorAll('.card-header h2');
+            headers.forEach(function(header) {
+                header.addEventListener('click', function() {
+                    var collapseElement = this.parentElement.nextElementSibling;
+                    var cardBody = collapseElement.querySelector('.card-body');
+                    if (collapseElement.classList.contains('show')) {
+                        collapseElement.classList.remove('show');
+                        cardBody.style.display = 'none';
+                    } else {
+                        var allCollapses = document.querySelectorAll('.collapse');
+                        allCollapses.forEach(function(collapse) {
+                            collapse.classList.remove('show');
+                            collapse.querySelector('.card-body').style.display = 'none';
+                        });
+                        collapseElement.classList.add('show');
+                        cardBody.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
     <script type="text/javascript">
         (function() {

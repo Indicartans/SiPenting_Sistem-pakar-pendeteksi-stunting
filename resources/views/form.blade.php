@@ -71,50 +71,54 @@
 <body class="screen-template-default single single-screen postid-22 not-front">
     <div id="page" class="site">
         <header id="header" class="clearfix">
-            <div class="wrap normal">
-                <a id="logo" href="/"><img src="landing/img/SiPenting-logo.png" alt="SiPenting Logo" /></a>
-                <nav id="navigation" class="main-navigation" role="navigation" aria-label="Top Menu">
-                    <div class="menu-main-menu-container">
-                        <ul id="main-menu" class="sf-menu">
-                            <li id="menu-item-406"
-                                class="heading left-col menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-406">
-                                <a href="#">Diagnosa Stunting</a>
-                                <ul class="sub-menu">
-                                    <li id="menu-item-16362"
-                                        class="wide bold menu-item menu-item-type-post_type menu-item-object-page menu-item-16362">
-                                        <a href="#">Gejala</a>
+            <div class="container">
+                <div class="row align-items-center d-flex justify-content-between">
+                    <div class="col-auto">
+                        <a id="logo" href="/"><img src="/landing/img/SiPenting-logo.png" alt="SiPenting Logo"
+                                class="img-fluid" /></a>
+                    </div>
+                    <div class="col">
+                        <nav id="navigation" class="main-navigation" role="navigation" aria-label="Top Menu">
+                            <div class="menu-main-menu-container">
+                                <ul id="main-menu" class="sf-menu d-flex justify-content-end">
+                                    {{-- <li id="menu-item-406"
+                                        class="heading left-col menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-406">
+                                        <a href="#">Diagnosa Stunting</a>
+                                        <ul class="sub-menu">
+                                            <li id="menu-item-16362"
+                                                class="wide bold menu-item menu-item-type-post_type menu-item-object-page menu-item-16362">
+                                                <a href="#">Gejala</a>
+                                            </li>
+                                            <li id="menu-item-3054"
+                                                class="wide bold menu-item menu-item-type-post_type menu-item-object-page menu-item-3054">
+                                                <a href="#">Depresi</a>
+                                            </li>
+                                        </ul>
+                                    </li> --}}
+                                    <li id="menu-item-405"
+                                        class="heading menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-405">
+                                        <a href="/">Home</a>
                                     </li>
-                                    <li id="menu-item-3054"
-                                        class="wide bold menu-item menu-item-type-post_type menu-item-object-page menu-item-3054">
-                                        <a href="#">Stunting</a>
+                                    <li id="menu-item-405"
+                                        class="heading menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-405">
+                                        <a href="/artikel">Artikel</a>
                                     </li>
-
+                                    <li id="menu-item-404"
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-404">
+                                        <a href="about">About</a>
+                                    </li>
                                 </ul>
-                            </li>
-                            <li id="menu-item-405"
-                                class="heading menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-405">
-                                <a href="/">Home</a>
-                            </li>
-                            <li id="menu-item-404"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-404"><a
-                                    href="">About</a></li>
-                        </ul>
+                            </div>
+                        </nav>
                     </div>
-                    <div class="menu-main-menu-buttons-container">
-                        <ul id="main-menu-buttons" class="menu">
-                            <li id="menu-item-400"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-400"><a
-                                    href="/form">Cek seberapa besar kemungkinan anak anda terkena stunting</a></li>
-                        </ul>
-                    </div>
-                </nav>
+                </div>
             </div>
         </header>
         <main id="content" class="site-content">
             <article id="post-22" class="post-22 screen type-screen status-publish hentry condition-depression">
                 <div class="wrap normal">
                     <div class="page-heading plain">
-                        <h1 class="entry-title">Diagnosa Stunting</h1>
+                        <h1 class="entry-title text-center">Diagnosa Stunting</h1>
                     </div>
                 </div>
                 <div class="wrap medium">
@@ -122,11 +126,11 @@
                         <form method='post' enctype='multipart/form-data' id='gform_1'
                             action="{{ route('spk.store') }}">
                             @csrf
-                            <ol class="screen-progress-bar clearfix step-2-of-3">
+                            {{-- <ol class="screen-progress-bar clearfix step-2-of-3">
                                 <li class="step-1"><span>Informasi<br />Tes</span></li>
                                 <li class="step-2"><span>Pertanyaan<br />Tes</span></li>
                                 <li class="step-3"><span>Hasil<br />Anda</span></li>
-                            </ol>
+                            </ol> --}}
                             <div class='gform_body gform-body '>
                                 <div id='gform_page_1_1' class='gform_page'>
                                     <div class='gform_page_fields'>
