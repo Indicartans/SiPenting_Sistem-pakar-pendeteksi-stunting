@@ -60,6 +60,13 @@
         .card-header h2 {
             cursor: pointer;
             font-size: 1.5rem;
+            font-weight: normal;
+            /* text-decoration: underline; */
+            font-size: 1rem
+        }
+
+        .card-header h2:hover {
+            text-decoration: underline
         }
     </style>
 </head>
