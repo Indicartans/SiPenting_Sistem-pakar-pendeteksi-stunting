@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('artikels', function (Blueprint $table) {
             $table->id();
+            $table->string('slug')->unique();
             $table->char('url_gambar')->default(null);
             $table->char('kode_depresi');
             $table->string('judul');

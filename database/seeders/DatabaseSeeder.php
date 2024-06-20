@@ -42,6 +42,8 @@ class DatabaseSeeder extends Seeder
         Gejala::insert($gejala->fillTable());
         TingkatDepresi::insert($depresi->fillTable());
         KondisiUser::insert($kondisi->fillTable());
-        Artikel::insert($artikel->fillTabel());
+        foreach ($artikel->fillTabel() as $data) {
+            Artikel::create($data);
+        }
     }
 }

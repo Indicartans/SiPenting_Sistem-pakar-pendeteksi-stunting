@@ -2,17 +2,30 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Str;
+use App\Models\TingkatDepresi;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Artikel extends Model
 {
     use HasFactory;
-    protected $fillable = ["isi", "judul", "kode_depresi", "id_gambar", "url_gambar", "saran"];
+    protected $fillable = ["isi", "judul", "kode_depresi", "id_gambar", "url_gambar", "saran", 'slug'];
 
     public function depresi()
     {
         return $this->belongsTo(TingkatDepresi::class, 'kode_depresi', 'kode_depresi');
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saving(function ($artikel) {
+            if (empty($artikel->slug)) {
+                $artikel->slug = Str::slug($artikel->judul);
+            }
+        });
     }
 
     public function fillTabel()

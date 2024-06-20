@@ -1,16 +1,18 @@
 <?php
 
+use App\Models\User;
+use App\Models\Gejala;
+use App\Models\Diagnosa;
+use App\Models\KondisiUser;
+use App\Models\TingkatDepresi;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GejalaController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\DiagnosaController;
-use App\Http\Controllers\GejalaController;
 use App\Http\Controllers\KeputusanController;
+use App\Http\Controllers\HomeArtikelController;
 use App\Http\Controllers\TingkatDepresiController;
-use App\Models\Diagnosa;
-use App\Models\TingkatDepresi;
-use App\Models\KondisiUser;
-use App\Models\Gejala;
-use App\Models\User;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,5 +89,7 @@ Route::get('/form-faq', function () {
 
 Route::resource('/spk', DiagnosaController::class);
 Route::get('/spk/result/{diagnosa_id}', [DiagnosaController::class, 'diagnosaResult'])->name('spk.result');
+Route::resource('/artikel', HomeArtikelController::class);
+Route::get('artikel/{slug}', [HomeArtikelController::class, 'show'])->name('artikel.show');
 
 Auth::routes();
