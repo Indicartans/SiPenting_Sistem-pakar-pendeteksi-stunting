@@ -155,7 +155,7 @@
                             </div>
                             <div class="text-justify">
                                 <h5 class="mx-auto my-1 fw-semibold">Saran</h5>
-                                <p class="my-2 py-2">{{ $artikel->isi }}</p>
+                                <p class="my-2 py-2">{{ $artikel->saran }}</p>
                             </div>
                             <div>
                                 @auth

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->char('kode_depresi');
             $table->string('judul');
             $table->text('isi');
+            $table->text('saran');
             $table->timestamps();
         });
     }
