@@ -23,10 +23,34 @@ class Artikel extends Model
 
         static::saving(function ($artikel) {
             if (empty($artikel->slug)) {
-                $artikel->slug = Str::slug($artikel->judul);
+                $artikel->slug = static::createUniqueSlug($artikel->judul);
+            } else {
+                $artikel->slug = static::createUniqueSlug($artikel->slug, $artikel->id);
             }
         });
     }
+
+    /**
+     * Create a unique slug.
+     *
+     * @param  string  $title
+     * @param  int  $id
+     * @return string
+     */
+    protected static function createUniqueSlug($title, $id = 0)
+    {
+        $slug = Str::slug($title);
+        $originalSlug = $slug;
+        $count = 1;
+
+        while (static::where('slug', $slug)->where('id', '!=', $id)->exists()) {
+            $slug = "{$originalSlug}-{$count}";
+            $count++;
+        }
+
+        return $slug;
+    }
+
 
     public function fillTabel()
     {

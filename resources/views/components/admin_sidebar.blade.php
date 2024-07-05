@@ -52,10 +52,10 @@
         </li><!-- End Depresi Page Nav -->
 
         <li class="nav-item">
-            <a class="nav-link {{ request()->is('keterangan') ? '' : 'collapsed' }} {{ request()->is('pengetahuan') ? 'active' : '' }}"
+            <a class="nav-link {{ request()->is('keterangan') ? '' : 'collapsed' }} {{ request()->is('keterangan') ? 'active' : '' }}"
                 href="/keterangan">
                 <i class="bi bi-file-earmark-text"></i>
-                <span>Keterangan</span>
+                <span>Artikel</span>
             </a>
         </li><!-- End Depresi Page Nav -->
 

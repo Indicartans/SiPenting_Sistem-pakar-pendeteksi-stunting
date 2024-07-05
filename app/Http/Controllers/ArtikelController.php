@@ -7,6 +7,7 @@ use App\Http\Requests\StoreArtikelRequest;
 use App\Http\Requests\UpdateArtikelRequest;
 use App\Models\TingkatDepresi;
 use Clockwork\Request\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ArtikelController extends Controller
 {
@@ -40,11 +41,15 @@ class ArtikelController extends Controller
      */
     public function store(StoreArtikelRequest $request)
     {
-        // dd($request->all());
-        $request->validate([
+        // ddd($request);
+        $validatedData = $request->validate([
             'kode_depresi' => 'required',
-            'isi' => 'required'
+            // 'judul' => 'required',
+            'isi' => 'required',
+            'saran' => 'required',
+            'url_gambar' => 'image'
         ]);
+
 
         // Cari entri berdasarkan kode_depresi
         $penyakit = TingkatDepresi::where('kode_depresi', $request->kode_depresi)->first();
@@ -54,19 +59,22 @@ class ArtikelController extends Controller
             $judul = $penyakit->depresi;
             // dd($judul);
         } else {
-            // Tangani kasus di mana kode_depresi tidak ditemukan (misalnya, lempar error atau set judul default)
+            // Tangani kasus di mana kode_depresi tidak ditemukan
             return redirect()->back()->withErrors(['kode_depresi' => 'Kode Depresi tidak ditemukan.']);
         }
 
-        // Buat entri baru di tabel artikel
-        Artikel::create([
-            'kode_depresi' => $request->kode_depresi,
-            'judul' => $judul,
-            'isi' => $request->isi,
-            'url_gambar' => "https://source.unsplash.com/1600x900/?{$judul}"
-        ]);
+        $validatedData['judul'] = $judul;
 
-        // Redirect atau lakukan sesuatu setelah penyimpanan berhasil
+        if ($request->file('url_gambar')) {
+            $validatedData['url_gambar'] = $request->file('url_gambar')->store('artikel-images', 'public');
+        }
+
+        // dd($validatedData);
+
+        // Buat entri baru di tabel artikel
+        Artikel::create($validatedData);
+
+        // Redirect  setelah penyimpanan berhasil
         return redirect()->route('keterangan.index')->with('pesan', '<div class="alert alert-success p-3 mt-3" role="alert">
         Keterangan telah ditambahkan
         </div>');
@@ -109,7 +117,16 @@ class ArtikelController extends Controller
         $valid = $request->validate([
             'judul' => 'required',
             'isi' => 'required',
+            'saran' => 'required',
+            'url_gambar' => 'image'
         ]);
+
+        if ($request->file('url_gambar')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $valid['url_gambar'] = $request->file('url_gambar')->store('artikel-images', 'public');
+        }
 
         // Debug untuk memastikan data validasi
         // dd($valid);
@@ -117,16 +134,16 @@ class ArtikelController extends Controller
         // Update instance model $keputusan dengan data yang sudah divalidasi
         $update = Artikel::find($artikel)->update($valid);
         if ($update) {
-            return redirect()->route('keterangan.index')->with('pesan', '<div class="alert alert-success p-3 mt-3" role="alert">Keterangan telah diupdate</div>');
+            return redirect()->route('keterangan.index')->with('pesan', '<div class="alert alert-success p-3 mt-3" role="alert">Artikel telah diupdate</div>');
         }
-        return redirect()->route('pengetahuan.index')->with('pesan', '<div class="alert alert-warning p-3 mt-3" role="alert">Keterangan gagal diupdate</div>');
+        return redirect()->route('pengetahuan.index')->with('pesan', '<div class="alert alert-warning p-3 mt-3" role="alert">Artikel gagal diupdate</div>');
 
         // Debug untuk memastikan data telah diupdate
         // dd($keputusan);
 
         // Redirect ke halaman yang sesuai dengan pesan sukses
         return redirect()->route('keterangan.index')->with('pesan', '<div class="alert alert-info p-3 mt-3" role="alert">
-        keterangan telah diperbarui
+        Artikel telah diperbarui
         </div>');
     }
 
@@ -136,11 +153,28 @@ class ArtikelController extends Controller
      * @param  \App\Models\Artikel  $artikel
      * @return \Illuminate\Http\Response
      */
-    public function destroy($artikel)
+    public function destroy($id)
     {
-        Artikel::find($artikel)->delete();
-        return redirect()->route('keterangan.index')->with('pesan', '<div class="alert alert-danger p-3 mt-3" role="alert">
-        Keterangan telah dihapus
-        </div>');
+        // Ambil artikel berdasarkan ID
+        $artikel = Artikel::find($id);
+
+        // Jika artikel tidak ditemukan, kembalikan pesan error
+        if (!$artikel) {
+            return redirect()->route('keterangan.index')->with('pesan', '<div class="alert alert-warning p-3 mt-3" role="alert">Artikel tidak ditemukan</div>');
+        }
+
+        // Simpan URL gambar sebelum artikel dihapus
+        $url_gambar = $artikel->url_gambar;
+
+        // Hapus artikel dari database
+        $artikel->delete();
+
+        // Jika ada gambar, hapus dari storage
+        if ($url_gambar) {
+            Storage::disk('public')->delete($url_gambar);
+        }
+
+        // Redirect dengan pesan sukses
+        return redirect()->route('keterangan.index')->with('pesan', '<div class="alert alert-danger p-3 mt-3" role="alert">Keterangan telah dihapus</div>');
     }
 }
