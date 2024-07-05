@@ -1,4 +1,4 @@
-#DIAGNOSA TINGKAT STUNTING DENGAN METODE CERTAINTY FACTOR DAN FORWARD CHAINING#
+# Diagnosa Tingkat Stunting dengan Metode Certainty Factor dan Forward Chaining
 
 ## Menjalankan Program
 
