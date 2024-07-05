@@ -1,5 +1,5 @@
 # Diagnosa Tingkat Stunting dengan Metode Certainty Factor dan Forward Chaining
-Sistem Pakar Diagnosa Tingkat Stunting Mahasiswa Tingkat Akhir adalah sebuah aplikasi yang menggunakan metode Certainty Factor dan Forward Chaining untuk mendiagnosa tingkat stunting pada mahasiswa tingkat akhir. Aplikasi ini dirancang untuk membantu dalam mengidentifikasi gejala dan tingkat stunting berdasarkan data yang diberikan pengguna. Dengan antarmuka yang user-friendly, pengguna dapat mengisi form diagnosa dan mendapatkan hasil diagnosa yang akurat serta saran yang relevan. Sistem ini juga dilengkapi dengan fitur-fitur seperti dashboard, manajemen gejala, dan gangguan stunting, yang semuanya dapat diakses melalui platform web.
+SiPenting (Sistem Pendeteksi Stunting) adalah sebuah aplikasi yang menggunakan metode Certainty Factor dan Forward Chaining untuk mendiagnosa tingkat stunting pada anak. Aplikasi ini dirancang untuk membantu dalam mengidentifikasi gejala dan tingkat stunting berdasarkan data yang diberikan pengguna. Dengan antarmuka yang user-friendly, pengguna dapat mengisi form diagnosa dan mendapatkan hasil diagnosa yang akurat serta saran yang relevan. Sistem ini juga dilengkapi dengan fitur-fitur seperti dashboard, manajemen gejala, dan gangguan stunting, yang semuanya dapat diakses melalui platform web.
 
 ## Menjalankan Program
 
