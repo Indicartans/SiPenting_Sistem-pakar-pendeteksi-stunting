@@ -1,8 +1,8 @@
-# Sistem Pakar Diagnosa Tingkat Depresi Mahasiswa Tingkat Akhir
+# Sistem Pakar Diagnosa Tingkat Stunting Mahasiswa Tingkat Akhir
 
 <h2>DIAGNOSA TINGKAT STUNTING DENGAN METODE CERTAINTY FACTOR DAN FORWARD CHAINING</h2>
 
-## Berikut tampilan sistem yang di buat.
+## Berikut tampilan sistem yang dibuat.
 
 -   Home
     <img
@@ -27,11 +27,11 @@
     srcset=""
 />
 
--   Gangguan Depresi
+-   Gangguan Stunting
 
 <img
     src="https://user-images.githubusercontent.com/55641225/210591019-46baab91-d130-4b61-a0d3-fc5128ae8690.png"
-    alt="depresi"
+    alt="stunting"
     srcset=""
 />
 
@@ -55,7 +55,7 @@
 />
 
 <ol>
-    <li><a href="https://github.com/alfiatqia26" target="_blank">Alfi Atqia R.</li>
+    <li><a href="https://github.com/alfiatqia26" target="_blank">Alfi Atqia R.</a></li>
     <li><a href="https://github.com/canggihwr" target="_blank">Canggih Wahyu R.</a></li>
     <li><a href="https://github.com/Andrian17" target="_blank">Andrian</a></li>
 <ol>
