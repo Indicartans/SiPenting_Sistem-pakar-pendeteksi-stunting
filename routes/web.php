@@ -66,6 +66,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/depresi', TingkatDepresiController::class);
     Route::resource('/spk', DiagnosaController::class)->only('index');
     Route::resource('/keterangan', ArtikelController::class);
+    Route::resource('/keterangan', ArtikelController::class);
     Route::resource('/pengetahuan', KeputusanController::class);
 });
 

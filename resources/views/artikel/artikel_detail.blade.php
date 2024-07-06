@@ -1,7 +1,31 @@
 @extends('main')
+@section('title', $artikel->judul)
 <style>
     .card-link:hover {
         text-decoration: underline
+    }
+
+
+    .card-img-top-wrapper {
+        /* position: relative; */
+        width: 100%;
+        height: 25%;
+        /* padding-bottom: 177.78%; */
+        /* (16 / 9) * 100% */
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        aspect-ratio: 16 / 4;
+    }
+
+    @media (max-width: 768px) {
+        .card-img-top {
+            aspect-ratio: 1 / 1;
+        }
     }
 </style>
 @section('main_section')
@@ -9,10 +33,10 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">{{ $artikel->judul }}</h5>
-
-                {{-- Tambahkan gambar jika dibutuhkan --}}
-                {{-- <img src="{{ $artikel->url_gambar }}" class="card-img-top" alt="{{ $artikel->judul }}"> --}}
-
+                <div class="card-img-top-wrapper rounded">
+                    <img src="{{ asset('storage/' . $artikel->url_gambar) }}" class="card-img-top mb-3 rounded img-fluid"
+                        alt="{{ $artikel->judul }}">
+                </div>
                 <p class="card-text">{{ $artikel->isi }}</p>
 
                 <h6 class="fw-bold mt-4">Gejala</h6>

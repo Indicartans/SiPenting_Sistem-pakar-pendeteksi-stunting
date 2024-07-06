@@ -8,6 +8,8 @@ use App\Http\Requests\UpdateArtikelRequest;
 use App\Models\TingkatDepresi;
 use Clockwork\Request\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+
 
 class ArtikelController extends Controller
 {
@@ -18,7 +20,7 @@ class ArtikelController extends Controller
      */
     public function index()
     {
-        $keterangan = Artikel::all();
+        $keterangan = Artikel::with('depresi')->get();
         $penyakit = TingkatDepresi::all();
         return view('admin.keterangan.keterangan', compact('keterangan', 'penyakit'));
     }
