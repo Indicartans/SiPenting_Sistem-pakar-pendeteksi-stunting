@@ -33,12 +33,14 @@ Route::get('/', function () {
 
 
 Route::middleware('auth')->group(function () {
+
     Route::get('/dashboard', function () {
         $data = [
             'gejala' => Gejala::all(),
             'kondisi_user' => KondisiUser::all(),
             'user' => User::all(),
-            'tingkat_depresi' => TingkatDepresi::all()
+            'tingkat_depresi' => TingkatDepresi::all(),
+            'diagnosa' => Diagnosa::all()
 
         ];
         return view('admin.dashboard', $data);

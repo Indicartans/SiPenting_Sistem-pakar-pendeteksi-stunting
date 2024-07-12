@@ -7,55 +7,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <link rel="stylesheet" media="print" onload="this.onload=null;this.media='all';" id="ao_optimized_gfonts"
-        href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,italic300,italic400,italic600,italic700%7CNoto+Sans:400,700,italic400,italic700&amp;display=swap" />
-    <link rel="profile" href="http://gmpg.org/xfn/11">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap" />
+    <link rel="shortcut icon" href="assets/img/sipenting-sm.png">
     <link rel="icon" href="assets/img/sipenting-sm.png">
-    <link rel="apple-touch-icon" href="depresi-assets/apple-touch-icon.png">
-
-    {{-- bootstrap --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="depresi-assets/google/www.googleoptimize.com/optimize3af5.js?id=OPT-PNLZZ5R"></script>
-    <script>
-        (function(w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start': new Date().getTime(),
-                event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src =
-                'depresi-assets/google/www.googletagmanager.com/gtm5445.html?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-N3TWZFC');
-    </script>
-    <link rel="preconnect" href="https://fonts.gstatic.com/">
-    <link rel="dns-prefetch" href="http://fonts.googleapis.com/">
-    <script>
-        (function(html) {
-            html.className = html.className.replace(/\bno-js\b/, 'js')
-        })(document.documentElement);
-    </script>
-    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
-    <link media="all"
+    <meta name="theme-color" content="#365888">
+    <title>Diagnosa Stunting</title>
+    <link rel="stylesheet"
         href="depresi-assets/wp-content/cache/autoptimize/css/autoptimize_7a1ecf2654b585c47ef39ad343596e82.css"
-        rel="stylesheet" />
-    <link media="print"
+        media="all" />
+    <link rel="stylesheet"
         href="depresi-assets/wp-content/cache/autoptimize/css/autoptimize_5653ccbbff2bf3fde17022871919df8b.css"
-        rel="stylesheet" />
-    <title>Diagnosa Tingkat Depresi</title>
-    <link href='https://fonts.gstatic.com/' crossorigin='anonymous' rel='preconnect' />
-
-    <link rel='stylesheet' id='dashicons-css' href='depresi-assets/wp-includes/css/dashicons.min6a4d.css?ver=6.1.1'
-        media='all' />
-    <script src='depresi-assets/wp-includes/js/jquery/jquery.mina7a0.js?ver=3.6.1' id='jquery-core-js'></script>
-    <script src='depresi-assets/wp-includes/js/jquery/jquery-migrate.mind617.js?ver=3.3.2' id='jquery-migrate-js'></script>
-
+        media="print" />
     <style>
         .card-header h2 {
             cursor: pointer;
@@ -72,33 +35,18 @@
 </head>
 
 <body class="screen-template-default single single-screen postid-22 not-front">
-
-    <div id="page" class="site"> <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+    <div id="page" class="site">
         <header id="header" class="clearfix">
             <div class="container">
                 <div class="row align-items-center d-flex justify-content-between">
                     <div class="col-auto">
-                        <a id="logo" href="/"><img src="/landing/img/SiPenting-logo.png" alt="SiPenting Logo"
-                                class="img-fluid" /></a>
+                        <a id="logo" href="/" class=" m-auto"><img src="/landing/img/SiPenting-logo.png"
+                                alt="SiPenting Logo" class="img-fluid" /></a>
                     </div>
                     <div class="col">
                         <nav id="navigation" class="main-navigation" role="navigation" aria-label="Top Menu">
                             <div class="menu-main-menu-container">
                                 <ul id="main-menu" class="sf-menu d-flex justify-content-end">
-                                    {{-- <li id="menu-item-406"
-                                        class="heading left-col menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-406">
-                                        <a href="#">Diagnosa Stunting</a>
-                                        <ul class="sub-menu">
-                                            <li id="menu-item-16362"
-                                                class="wide bold menu-item menu-item-type-post_type menu-item-object-page menu-item-16362">
-                                                <a href="#">Gejala</a>
-                                            </li>
-                                            <li id="menu-item-3054"
-                                                class="wide bold menu-item menu-item-type-post_type menu-item-object-page menu-item-3054">
-                                                <a href="#">Depresi</a>
-                                            </li>
-                                        </ul>
-                                    </li> --}}
                                     <li id="menu-item-405"
                                         class="heading menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-405">
                                         <a href="/">Home</a>
@@ -109,7 +57,7 @@
                                     </li>
                                     <li id="menu-item-404"
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-404">
-                                        <a href="about">About</a>
+                                        <a href="/about">About</a>
                                     </li>
                                 </ul>
                             </div>
@@ -130,9 +78,9 @@
                                 <div id='gform_page_1_1' class='gform_page'>
                                     <div class='gform_page_fields'>
                                         <!-- FAQ Section -->
-                                        <section id="faq" class="bg-light py-5">
+                                        <section id="faq" class="bg-light py-5 rounded">
                                             <div class="container">
-                                                <h2 class="text-center mb-5">Pertanyaan yang Sering Diajukan - FAQ</h2>
+                                                <h2 class="text-center mb-5">Informasi Umum Mengenai SiPenting</h2>
                                                 <div class="accordion" id="faqAccordion">
                                                     <div class="card">
                                                         <div class="card-header" id="headingOne">
@@ -165,8 +113,7 @@
                                                             </h2>
                                                         </div>
                                                         <div id="collapseThree" class="collapse"
-                                                            aria-labelledby="headingThree"
-                                                            data-parent="#faqAccordion">
+                                                            aria-labelledby="headingThree" data-parent="#faqAccordion">
                                                             <div class="card-body">
                                                                 Hasil dari SiPenting adalah sebuah estimasi dari tingkat
                                                                 terjadinya stunting pada anak, dan

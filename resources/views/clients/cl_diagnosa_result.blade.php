@@ -163,8 +163,9 @@
                             <div class="text-justify">
                                 {{-- <h5 class="mx-auto my-1 fw-semibold">Saran</h5> --}}
                                 {{-- <p class="my-2 py-2 card-link"></p> --}}
-                                <a href="/artikel/{{ $artikel->slug }}" class="card-link my-2 py-2">Apa itu
-                                    {{ $artikel->judul }}?</a>
+                                <a href="/artikel/{{ $artikel->slug }}" class="card-link my-2 py-2">Ketahui lebih lanjut
+                                    tentang
+                                    <span class="fw-semibold">{{ $artikel->judul }}</span></a>
                             </div>
                             <div>
                                 @auth

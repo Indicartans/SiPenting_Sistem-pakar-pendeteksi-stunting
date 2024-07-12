@@ -4,64 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <link rel="stylesheet" media="print" onload="this.onload=null;this.media='all';" id="ao_optimized_gfonts"
-        href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,italic300,italic400,italic600,italic700%7CNoto+Sans:400,700,italic400,italic700&amp;display=swap" />
-    <link rel="profile" href="http://gmpg.org/xfn/11">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap" />
     <link rel="shortcut icon" href="assets/img/sipenting-sm.png">
     <link rel="icon" href="assets/img/sipenting-sm.png">
-    <link rel="apple-touch-icon" href="depresi-assets/apple-touch-icon.png">
-    <meta name="msapplication-TileColor" content="#FFFFFF">
-    <meta name="msapplication-TileImage" content="depresi-assets/favicon-144x144.png">
     <meta name="theme-color" content="#365888">
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-            'event': 'traffic_type',
-            'traffic_type': 'external'
-        });
-
-        window.dataLayer.push({
-            'event': 'screen_test'
-        });
-    </script>
-    <script src="depresi-assets/google/www.googleoptimize.com/optimize3af5.js?id=OPT-PNLZZ5R"></script>
-    <script>
-        (function(w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start': new Date().getTime(),
-                event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src =
-                'depresi-assets/google/www.googletagmanager.com/gtm5445.html?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-N3TWZFC');
-    </script>
-    <link rel="preconnect" href="https://fonts.gstatic.com/">
-    <link rel="dns-prefetch" href="http://fonts.googleapis.com/">
-    <script>
-        (function(html) {
-            html.className = html.className.replace(/\bno-js\b/, 'js')
-        })(document.documentElement);
-    </script>
-    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
-    <link media="all"
-        href="depresi-assets/wp-content/cache/autoptimize/css/autoptimize_7a1ecf2654b585c47ef39ad343596e82.css"
-        rel="stylesheet" />
-    <link media="print"
-        href="depresi-assets/wp-content/cache/autoptimize/css/autoptimize_5653ccbbff2bf3fde17022871919df8b.css"
-        rel="stylesheet" />
     <title>Diagnosa Stunting</title>
-    <link rel="icon" type="image/png" href="assets/img/sipenting-sm.png">
-    <link rel="canonical" href="index.html" />
-
-    <link href='https://fonts.gstatic.com/' crossorigin='anonymous' rel='preconnect' />
-    <link rel='stylesheet' id='dashicons-css' href='assets/img/sipenting-sm.png' media='all' />
+    <link rel="stylesheet"
+        href="depresi-assets/wp-content/cache/autoptimize/css/autoptimize_7a1ecf2654b585c47ef39ad343596e82.css"
+        media="all" />
+    <link rel="stylesheet"
+        href="depresi-assets/wp-content/cache/autoptimize/css/autoptimize_5653ccbbff2bf3fde17022871919df8b.css"
+        media="print" />
     <style>
         .question {
             display: none;
@@ -69,10 +23,22 @@
 
         .question.active {
             display: block;
+            animation: fadeInOut 1.5s;
         }
 
         .btn-prev {
             border-radius: 20px 0px 20px 20px;
+        }
+
+        @keyframes fadeInOut {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+
+            }
         }
     </style>
 </head>
@@ -159,7 +125,8 @@
                                                                     <input name='input_{{ $loop->parent->iteration }}'
                                                                         type='radio' value='{{ $kondisi->nilai }}'
                                                                         id='choice_{{ $loop->parent->iteration }}_{{ $loop->iteration }}'
-                                                                        onchange="document.getElementById('kondisi_{{ $item->kode_gejala }}{{ $loop->parent->iteration }}').value = this.value; nextQuestion()" />
+                                                                        onchange="document.getElementById('kondisi_{{ $item->kode_gejala }}{{ $loop->parent->iteration }}').value = this.value; nextQuestion()"
+                                                                        @if ($kondisi->id == 1) checked @endif />
                                                                     <label
                                                                         for='choice_{{ $loop->parent->iteration }}_{{ $loop->iteration }}'
                                                                         id='label_{{ $loop->parent->iteration }}_{{ $loop->iteration }}'>{{ $kondisi->kondisi }}</label>

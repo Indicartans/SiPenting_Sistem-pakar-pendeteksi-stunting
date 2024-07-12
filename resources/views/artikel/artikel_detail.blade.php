@@ -48,7 +48,9 @@
 
                 <h6 class="fw-bold mt-4">Saran</h6>
                 <p>{{ $artikel->saran }}</p>
+                <hr>
 
+                <h4 class="fw-bold my-4 text-center" style="color: #055596">Temukan Layanan Kesehatan di Sekitar Anda</h4>
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d31675.797911946986!2d110.44994240053528!3d-7.070825458573365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1srumah%20sakit%20terdekat!5e0!3m2!1sid!2sid!4v1720360062379!5m2!1sid!2sid"
                     width="full" height="450" style="border:0; width:100%; height:20rem" allowfullscreen=""

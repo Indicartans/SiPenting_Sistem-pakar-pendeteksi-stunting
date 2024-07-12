@@ -16,5 +16,4 @@
     <main>
         @yield('admin_content')
     </main>
-
 @endsection
