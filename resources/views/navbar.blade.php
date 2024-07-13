@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="/">
-            <img src="assets\img\sipenting-sm.png" class="navbar-brand-image img-fluid" alt="Barista Cafe Template">
+            <img src="{{ asset('assets\img\sipenting-sm.png') }}" class="navbar-brand-image img-fluid"
+                alt="Barista Cafe Template">
             SiPenting
         </a>
 

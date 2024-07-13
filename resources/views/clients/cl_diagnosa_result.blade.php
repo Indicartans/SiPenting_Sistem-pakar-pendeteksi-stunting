@@ -1,189 +1,201 @@
-@extends('clients.cl_main')
-@section('title', 'Form Diagnosa')
+@extends('landing_main')
 
-@section('cl_content')
-    <div class="container">
-        <div class="row mx-auto my-4">
-            @auth
-                <div class="col-lg-10 mx-auto">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Diagnosa ID</th>
-                                <th scope="col">Tingkat Depresi</th>
-                                <th scope="col">Persentase</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>{{ $diagnosa->diagnosa_id }}</td>
-                                <td> {{ $diagnosa_dipilih['kode_depresi']->kode_depresi }} |
-                                    {{ $diagnosa_dipilih['kode_depresi']->depresi }}</td>
-                                <td>{{ $diagnosa_dipilih['value'] * 100 }} %</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+@section('title', 'Hasil Diagnosa')
 
-                {{-- section 2 --}}
-                <div class="row">
-                    <div class="col-lg-12 mx-auto">
-                        <div class="d-flex ">
-                            {{-- Pakar --}}
-                            <table class="table table-hover mt-lg-5 border border-primary p-3 mx-3">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Pakar</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">No</th>
-                                        <th scope="col">Gejala</th>
-                                        <th scope="col">Nilai (MB - MD)</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($pakar as $item)
-                                        <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>
-                                                {{ $item->kode_gejala }} | {{ $item->kode_depresi }}
-                                            </td>
-                                            <td>{{ $item->mb - $item->md }}</td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+@section('external_assets')
 
-                            {{-- User --}}
-                            <table class="table table-hover mt-lg-5 border border-danger p-3 mx-3">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">User</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">Gejala</th>
-                                        <th scope="col">Nilai</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($gejala_by_user as $key)
-                                        <tr>
-                                            <td>{{ $key[0] }}</td>
-                                            <td>{{ $key[1] }}</td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+@endsection
 
-                            {{-- Tabel Cf Gabungan --}}
-                            {{-- CF Gabungan --}}
-                            <table class="table table-hover mt-lg-5 border border-info p-3 mx-3">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Hasil</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">Nilai</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($cf_kombinasi['cf'] as $key)
-                                        <tr>
-                                            <td>{{ $key }}</td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+@section('content')
+    <section class="barista-section section-padding section-bg m-0" id="barista-team">
+        <div class="container">
+            <div class="row mx-auto my-4">
+                @auth
+                    <div class="col-lg-10 mx-auto">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Diagnosa ID</th>
+                                    <th scope="col">Tingkat Depresi</th>
+                                    <th scope="col">Persentase</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>{{ $diagnosa->diagnosa_id }}</td>
+                                    <td> {{ $diagnosa_dipilih['kode_depresi']->kode_depresi }} |
+                                        {{ $diagnosa_dipilih['kode_depresi']->depresi }}</td>
+                                    <td>{{ $diagnosa_dipilih['value'] * 100 }} %</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                </div>
-            @endauth
 
-
-            {{-- section 3 --}}
-            <div class="row">
-                <div class="col-md-10 mx-auto">
-                    <div class="card my-4">
-                        <div class="card-header">
-                            Hasil Diagnosa
-                        </div>
-                        <div class="card-body">
-                            @auth
-                                <h5 class="card-title">
-
-                                    {{ $diagnosa_dipilih['kode_depresi']->kode_depresi }} |
-                                    {{ $diagnosa_dipilih['kode_depresi']->depresi }}
-
-                                    {{-- {{ $diagnosa_dipilih['kode_depresi']->depresi }} --}}
-                                </h5>
-
-                                <p class="card-text">Jadi dapat disimpulkan bahwa pasien mengalami penyakit
-                                    <span class="fw-semibold">{{ $diagnosa_dipilih['kode_depresi']->depresi }}</span>
-                                    dengan tingkat kepastian yaitu <span
-                                        class="fw-semibold fs-4">{{ round($hasil['value'] * 100, 2) }}</span> %
-                                </p>
-                            @endauth
-                            @guest
-                                <p class="card-text">
-                                <table class="table">
+                    {{-- section 2 --}}
+                    <div class="row">
+                        <div class="col-lg-12 mx-auto">
+                            <div class="d-flex ">
+                                {{-- Pakar --}}
+                                <table class="table table-hover mt-lg-5 border border-primary p-3 mx-3">
                                     <thead>
                                         <tr>
+                                            <th scope="col">Pakar</th>
+                                        </tr>
+                                        <tr>
                                             <th scope="col">No</th>
-                                            <th scope="col">Gejala yang dialami</th>
+                                            <th scope="col">Gejala</th>
+                                            <th scope="col">Nilai (MB - MD)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($pakar as $item)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>
+                                                    {{ $item->kode_gejala }} | {{ $item->kode_depresi }}
+                                                </td>
+                                                <td>{{ $item->mb - $item->md }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+
+                                {{-- User --}}
+                                <table class="table table-hover mt-lg-5 border border-danger p-3 mx-3">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">User</th>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">Gejala</th>
+                                            <th scope="col">Nilai</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($gejala_by_user as $key)
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td class="gejala">{{ $key[0] }}</td>
+                                                <td>{{ $key[0] }}</td>
+                                                <td>{{ $key[1] }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
-                                <p>Berdasarkan dari gejala yang anda isikan dapat disimpulkan bahwa anak anda
-                                    memiliki penyakit
-                                    <span class="fw-semibold fs-4">{{ $diagnosa_dipilih['kode_depresi']->depresi }}</span>
-                                    dengan
-                                    tingkat kepastian
-                                    yaitu
-                                    <span class="fw-semibold fs-4">{{ round($hasil['value'] * 100, 2) }}</span> %
-                                </p>
-                            @endguest
-                            <div class="text-justify">
-                                <h5 class="mx-auto my-1 fw-semibold">Detail</h5>
-                                <p class="my-2 py-2">{{ $artikel->isi }}</p>
+
+                                {{-- Tabel Cf Gabungan --}}
+                                {{-- CF Gabungan --}}
+                                <table class="table table-hover mt-lg-5 border border-info p-3 mx-3">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Hasil</th>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">Nilai</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($cf_kombinasi['cf'] as $key)
+                                            <tr>
+                                                <td>{{ $key }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
-                            <div class="text-justify">
-                                <h5 class="mx-auto my-1 fw-semibold">Saran</h5>
-                                <p class="my-2 py-2">{{ $artikel->saran }}</p>
+                        </div>
+                    </div>
+                @endauth
+
+
+                {{-- section 3 --}}
+                <div class="row">
+                    <div class="col-md-10 mx-auto">
+                        <div class="card my-4">
+                            <div class="card-header">
+                                Hasil Diagnosa
                             </div>
-                            <div class="text-justify">
-                                {{-- <h5 class="mx-auto my-1 fw-semibold">Saran</h5> --}}
-                                {{-- <p class="my-2 py-2 card-link"></p> --}}
-                                <a href="/artikel/{{ $artikel->slug }}" class="card-link my-2 py-2">Ketahui lebih lanjut
-                                    tentang
-                                    <span class="fw-semibold">{{ $artikel->judul }}</span></a>
-                            </div>
-                            <div>
+                            <div class="card-body">
                                 @auth
-                                    <a style="align-content: flex-end" href="/dashboard" class="btn btn-primary my-4">
-                                        KEMBALI</a>
+                                    <h5 class="card-title">
+
+                                        {{ $diagnosa_dipilih['kode_depresi']->kode_depresi }} |
+                                        {{ $diagnosa_dipilih['kode_depresi']->depresi }}
+
+                                        {{-- {{ $diagnosa_dipilih['kode_depresi']->depresi }} --}}
+                                    </h5>
+
+                                    <p class="card-text">Jadi dapat disimpulkan bahwa pasien mengalami penyakit
+                                        <span class="fw-semibold">{{ $diagnosa_dipilih['kode_depresi']->depresi }}</span>
+                                        dengan tingkat kepastian yaitu <span
+                                            class="fw-semibold fs-4">{{ round($hasil['value'] * 100, 2) }}</span> %
+                                    </p>
                                 @endauth
                                 @guest
-                                    <a style="align-content: flex-end" href="/" class="btn btn-primary my-4"> KEMBALI</a>
+                                    <p class="card-text">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">No</th>
+                                                <th scope="col">Gejala yang dialami</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($gejala_by_user as $key)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td class="gejala">{{ $key[0] }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                    <p>Berdasarkan dari gejala yang anda isikan dapat disimpulkan bahwa anak anda
+                                        memiliki penyakit
+                                        <span class="fw-semibold fs-4">{{ $diagnosa_dipilih['kode_depresi']->depresi }}</span>
+                                        dengan
+                                        tingkat kepastian
+                                        yaitu
+                                        <span class="fw-semibold fs-4">{{ round($hasil['value'] * 100, 2) }}</span> %
+                                    </p>
                                 @endguest
+                                <div class="text-justify">
+                                    <h5 class="mx-auto my-1 fw-semibold">Detail</h5>
+                                    <p class="my-2 py-2">{{ $artikel->isi }}</p>
+                                </div>
+                                <div class="text-justify">
+                                    <h5 class="mx-auto my-1 fw-semibold">Saran</h5>
+                                    <p class="my-2 py-2">{{ $artikel->saran }}</p>
+                                </div>
+                                <div class="text-justify">
+                                    {{-- <h5 class="mx-auto my-1 fw-semibold">Saran</h5> --}}
+                                    {{-- <p class="my-2 py-2 card-link"></p> --}}
+                                    <a href="/artikel/{{ $artikel->slug }}" class="card-link my-2 py-2">Ketahui lebih
+                                        lanjut
+                                        tentang
+                                        <span class="fw-semibold">{{ $artikel->judul }}</span></a>
+                                </div>
+                                <div>
+                                    @auth
+                                        <a style="align-content: flex-end" href="/dashboard" class="btn btn-primary my-4">
+                                            KEMBALI</a>
+                                    @endauth
+                                    @guest
+                                        <a style="align-content: flex-end" href="/" class="btn btn-primary my-4">
+                                            KEMBALI</a>
+                                    @endguest
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            {{-- @include('components.cl_article') --}}
+                {{-- @include('components.cl_article') --}}
 
+            </div>
         </div>
-    </div>
+    </section>
+@endsection
+
+@section('external_js')
     <script>
         // Data mapping dari kode ke deskripsi gejala
         const gejalaDescriptions = {
