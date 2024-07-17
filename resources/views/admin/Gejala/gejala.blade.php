@@ -47,7 +47,8 @@
                                             <tbody>
                                                 @foreach ($gejala as $item)
                                                     <tr>
-                                                        <th scope="row"><a href="#"> {{ $loop->iteration }}</a>
+                                                        <th scope="row"><a href="#">
+                                                                {{ $loop->iteration + $gejala->firstItem() - 1 }}</a>
                                                         </th>
                                                         <td><a href="#"
                                                                 class="text-primary">{{ $item->kode_gejala }}</a>

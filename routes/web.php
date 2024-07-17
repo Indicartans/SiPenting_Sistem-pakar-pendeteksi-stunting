@@ -9,10 +9,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GejalaController;
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DiagnosaController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\KeputusanController;
 use App\Http\Controllers\HomeArtikelController;
 use App\Http\Controllers\TingkatDepresiController;
+// use Clockwork\Request\Request;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,17 +38,7 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/dashboard', function () {
-        $data = [
-            'gejala' => Gejala::all(),
-            'kondisi_user' => KondisiUser::all(),
-            'user' => User::all(),
-            'tingkat_depresi' => TingkatDepresi::all(),
-            'diagnosa' => Diagnosa::all()
-
-        ];
-        return view('admin.dashboard', $data);
-    });
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 
     Route::get('/dashboard/admin', function () {
         $data = [
@@ -72,14 +66,25 @@ Route::middleware('auth')->group(function () {
     Route::resource('/pengetahuan', KeputusanController::class);
 });
 
+Route::get('/form', [FormController::class, 'index']);
+Route::post('/form', [FormController::class, 'index']);
 
-Route::get('/form', function () {
-    $data = [
-        'gejala' => Gejala::all(),
-        'kondisi_user' => KondisiUser::all()
-    ];
-    return view('form', $data);
-});
+// Route::get('/form', function (Request $request) {
+//     // $usia = $request->query('usia');
+//     dd($request->all());
+//     $data = [
+//         'gejala' => Gejala::all(),
+//         'kondisi_user' => KondisiUser::all()
+//     ];
+//     return view('form', $data);
+// })->name('form');
+
+// Route::post('/form', function (Request $request) {
+//     $usia = $request->input('usia');
+//     // dd($usia);
+
+//     return redirect()->route('form')->with('usia', $usia);
+// });
 
 Route::get('/form-faq', function () {
     $data = [

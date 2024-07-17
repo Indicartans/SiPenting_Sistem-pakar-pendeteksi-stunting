@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Gejala;
 use App\Http\Requests\StoreGejalaRequest;
 use App\Http\Requests\UpdateGejalaRequest;
+use App\Models\Keputusan;
 
 class GejalaController extends Controller
 {
@@ -96,7 +97,9 @@ class GejalaController extends Controller
      */
     public function destroy(Gejala $gejala)
     {
-        // dd($gejala);
+        // dd($gejala->kode_gejala);
+        Keputusan::where('kode_gejala', $gejala->kode_gejala)->delete();
+
         $gejala->delete();
         return redirect()->route('gejala.index')->with('pesan', '<div class="alert alert-danger p-3 mt-3" role="alert">
         Gejala telah dihapus

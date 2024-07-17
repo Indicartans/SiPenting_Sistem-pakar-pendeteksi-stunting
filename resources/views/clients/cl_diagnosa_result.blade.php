@@ -3,7 +3,16 @@
 @section('title', 'Hasil Diagnosa')
 
 @section('external_assets')
+    <style>
+        p {
+            color: black
+        }
 
+        .card-link:hover {
+            color: blue;
+            text-decoration: underline
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -149,22 +158,23 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    <p>Berdasarkan dari gejala yang anda isikan dapat disimpulkan bahwa anak anda
+                                    <p class="fw-semibold">Berdasarkan dari gejala yang anda isikan dapat disimpulkan bahwa anak
+                                        anda
                                         memiliki penyakit
-                                        <span class="fw-semibold fs-4">{{ $diagnosa_dipilih['kode_depresi']->depresi }}</span>
+                                        <span class="fw-bold fs-4">{{ $diagnosa_dipilih['kode_depresi']->depresi }}</span>
                                         dengan
                                         tingkat kepastian
                                         yaitu
-                                        <span class="fw-semibold fs-4">{{ round($hasil['value'] * 100, 2) }}</span> %
+                                        <span class="fw-bold fs-4">{{ round($hasil['value'] * 100, 2) }}</span> %
                                     </p>
                                 @endguest
                                 <div class="text-justify">
                                     <h5 class="mx-auto my-1 fw-semibold">Detail</h5>
-                                    <p class="my-2 py-2">{{ $artikel->isi }}</p>
+                                    <p class="fw-semibold my-2 py-2">{{ $artikel->isi }}</p>
                                 </div>
                                 <div class="text-justify">
                                     <h5 class="mx-auto my-1 fw-semibold">Saran</h5>
-                                    <p class="my-2 py-2">{{ $artikel->saran }}</p>
+                                    <p class="fw-semibold my-2 py-2">{{ $artikel->saran }}</p>
                                 </div>
                                 <div class="text-justify">
                                     {{-- <h5 class="mx-auto my-1 fw-semibold">Saran</h5> --}}

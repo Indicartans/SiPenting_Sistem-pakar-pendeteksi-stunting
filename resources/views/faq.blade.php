@@ -2,19 +2,27 @@
 @section('title', 'Diagnosa Stunting')
 @section('external_assets')
     <style>
+        .barista-section {
+            background-color: rgb(237, 237, 237)
+        }
 
+        .card {
+            border: none;
+            box-shadow: 0 0 20px #e1e1e1;
+
+        }
     </style>
 
 @endsection
 @section('content')
     <section class="barista-section section-padding section-bg m-0" id="barista-team">
-        <div class="container">
-            <form method='post' enctype='multipart/form-data' id='gform_1' action="{{ route('spk.store') }}" novalidate>
+        <div class="container mt-5">
+            <form method='post' enctype='multipart/form-data' id='gform_1' action="/form" novalidate>
                 @csrf
                 <section id="faq" class="bg-light py-5 rounded">
                     <div class="container">
-                        <h2 class="text-center mb-5">Informasi Umum Mengenai SiPenting</h2>
-                        <div class="accordion" id="faqAccordion">
+                        <h2 class="text-center mb-5 entry-title" style="color: #055596">Validasi Usia anak</h2>
+                        {{-- <div class="accordion" id="faqAccordion">
                             <div class="card mb-3">
                                 <div class="card-header" id="headingOne">
                                     <h2 class="mb-0">
@@ -77,13 +85,37 @@
                                     </div>
                                 </div>
                             </div>
+                        </div> --}}
+                        <p class="fw-normal" style="color: black">Silahkan pilih rentang usia anak anda</p>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Pilih rentang usia anak anda</span>
+                            <select name="usia" id="usia" class="form-select">
+                                <option value="1">1-12 Bulan</option>
+                                <option value="2">1-5 tahun</option>
+                            </select>
                         </div>
+
                         <div class='gform_page_footer top_label d-flex justify-content-end'>
-                            <a href="/form" class='btn btn-primary'>Next</a>
+                            {{-- <a href="/form" id="nextbtn" class='btn btn-primary'>Next</a> --}}
+                            <button type="submit" class="btn btn-primary">Next</button>
                         </div>
                     </div>
                 </section>
             </form>
         </div>
     </section>
+@endsection
+
+@section('external_js')
+    {{-- <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const usiaSelected = getElementById('usia');
+            const button = getElementById('nextbtn');
+
+            usiaSelected.addEventListener('change', function() {
+                const selectedValue = usiaSelected.value;
+                button.href = `form?usia=${selectedValue}`
+            })
+        })
+    </script> --}}
 @endsection

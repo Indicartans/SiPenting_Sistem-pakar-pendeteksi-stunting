@@ -19,7 +19,7 @@
 
         .card-body {
             font-size: 16px;
-            color: #fff;
+            color: #d3c1c1;
             /* Text color white */
         }
 
@@ -60,7 +60,7 @@
         /* Custom Styles */
         .entry-title {
             font-size: 36px;
-            color: #fff;
+            color: #055596;
             /* Text color white */
             margin-bottom: 20px;
         }
@@ -68,7 +68,7 @@
         .page-intro p {
             font-size: 18px;
             margin-bottom: 20px;
-            color: #fff;
+            color: #000;
             /* Text color white */
         }
 
@@ -95,7 +95,7 @@
             font-size: 18px;
             margin-bottom: 10px;
             display: block;
-            color: #fff;
+            color: #000000;
             /* Text color white */
         }
 
@@ -111,15 +111,15 @@
         .gfield_radio label {
             display: inline-block;
             padding: 10px 20px;
-            border: 1px solid #ddd;
+            border: 1px solid #055596;
             border-radius: 20px;
             cursor: pointer;
-            color: #fff;
+            color: #000000;
             /* Text color white */
         }
 
         .gfield_radio input[type="radio"]:checked+label {
-            background-color: #00a99d;
+            background-color: #055596;
             color: #fff;
         }
 
@@ -128,7 +128,7 @@
         }
 
         .btn-next {
-            background-color: #007bff;
+            background-color: #055596;
             color: #fff;
             font-size: 16px;
             padding: 10px 20px;
@@ -136,11 +136,11 @@
         }
 
         .btn-next:hover {
-            background-color: #0056b3;
+            background-color: #0076f4;
         }
 
         .btn-prev {
-            background-color: #6c757d;
+            background-color: #989898;
             color: #fff;
             font-size: 16px;
             padding: 10px 20px;
@@ -168,14 +168,19 @@
             height: 100vh;
             display: flex;
             /* justify-content: start; */
-            align-items: center
+            align-items: center;
+            /* background-color: rgb(237, 237, 237); */
+        }
+
+        .barista-section .container {
+            box-shadow: 0 0 20px #e1e1e1;
         }
     </style>
 @endsection
 
 @section('content')
     <section class="barista-section section-padding section-bg m-0" id="barista-team">
-        <div class="container">
+        <div class="container bg-light p-4 rounded">
             <div class="wrap normal">
                 <div class="page-heading plain text-center">
                     <h1 class="entry-title">Diagnosa Stunting</h1>

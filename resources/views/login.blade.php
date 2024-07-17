@@ -53,7 +53,7 @@
 
         .btn {
             border-radius: 20px;
-            background-color: #3498db;
+            background-color: #3dae39;
             color: white;
             font-size: 18px;
             padding: 12px 30px;
@@ -61,7 +61,11 @@
         }
 
         .btn:hover {
-            background-color: #2980b9;
+            background-color: #238420;
+        }
+
+        body {
+            background-image: url('images/slides/slides1.jpg')
         }
     </style>
 
@@ -74,13 +78,13 @@
 
     <div class="login-card animate__animated animate__fadeInDown">
         <div style="text-align: center;">
-            <img src="landing/img/SiPenting-logo.png" alt="Logo" style="width: 100%">
+            <img src="landing/img/SiPenting-logo.png" alt="Logo" style="width: 80%">
         </div>
         <br>
         <br>
         <h1 style="font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;">Admin Login</h1>
+        font-weight: bold;
+        text-align: center;">Admin Login</h1>
         <form method="POST" action="{{ route('login') }}">
             @csrf
 

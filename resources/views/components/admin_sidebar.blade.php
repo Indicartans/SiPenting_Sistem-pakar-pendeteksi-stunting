@@ -13,13 +13,13 @@
 
         <li class="nav-heading">Pengetahuan</li>
 
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link {{ request()->routeIs('cl.form') ? '' : 'collapsed' }} {{ request()->routeIs('cl.form') ? 'active' : '' }}"
                 href="{{ route('cl.form') }}">
                 <i class="bi bi-clipboard-check"></i>
                 <span>Diagnosa</span>
             </a>
-        </li><!-- End Gejala Page Nav -->
+        </li><!-- End Gejala Page Nav --> --}}
         <li class="nav-item">
             <a class="nav-link {{ request()->routeIs('gejala.index') ? '' : 'collapsed' }} {{ request()->routeIs('gejala.index') ? 'active' : '' }}"
                 href="{{ route('gejala.index') }}">

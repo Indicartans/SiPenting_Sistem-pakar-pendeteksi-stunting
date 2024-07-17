@@ -32,7 +32,7 @@
                         Sistem Pendeteksi Stunting
                     </p>
 
-                    <a class="btn custom-btn smoothscroll me-2 mb-2" href="#section_3"><strong>Diagnosa
+                    <a class="btn custom-btn smoothscroll me-2 mb-2" href="/form-faq"><strong>Diagnosa
                             Sekarang!</strong></a>
                 </div>
 

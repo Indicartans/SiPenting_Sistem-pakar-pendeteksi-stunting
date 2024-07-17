@@ -13,6 +13,10 @@
             text-decoration: underline;
             color: blue
         }
+
+        .barista-section {
+            background-color: rgb(237, 237, 237)
+        }
     </style>
 @endsection
 
@@ -22,9 +26,10 @@
             <div class="row justify-content-center">
 
                 <div class="col-lg-12 col-12 text-center mb-4 pb-lg-2">
-                    <em class="text-white">SiPenting</em>
+                    <em class="">SiPenting</em>
 
-                    <h2 class="text-white">Artikel</h2>
+                    <h2 class="">Artikel</h2>
+                    <hr>
                 </div>
                 @foreach ($artikel as $item)
                     <div class="col-lg-3 col-md-6 col-12 mb-4">

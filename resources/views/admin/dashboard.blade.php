@@ -86,15 +86,99 @@
                                 </div>
                             </div>
                         </div><!-- End Customers Card -->
-                        <div class="col-xxl-4 col-xl-12">
+                        {{-- <div class="col-xxl-4 col-xl-6">
+                            <div class="card info-card customers-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Diagnosa <span>| Chart</span></h5>
+                                    @php
+                                        $diagnosa = json_decode($diagnosa->data_diagnosa);
+
+                                        var_dump($diagnosa);
+                                    @endphp
+                                    <p>
+                                        {{ $maxData['value'] }}
+                                    </p>
+                                    <script>
+                                        var diagnosa = @json($diagnosa);
+                                        var diagnosaJSON = JSON.stringify(diagnosa, null, 4);
+                                        console.log(diagnosaJSON);
+                                    </script>
+                                    <canvas id="penyakitChart">
+                                    </canvas>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", () => {
+                                            let diagnosa = @json($diagnosa);
+
+                                            new Chart(document.querySelector('#penyakitChart'), {
+                                                type: 'doughnut',
+                                                data: {
+                                                    labels: diagnosa.kode_depresi
+                                                    datasets: [{
+                                                        label: 'My First Dataset',
+                                                        data: diagnosa.id
+                                                        hoverOffset: 4
+                                                    }]
+                                                }
+                                            });
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div> --}}
+                        <!-- End Customers Card -->
+                        {{-- <div class="col-xxl-4 col-xl-6">
                             <div class="card info-card customers-card">
                                 <div class="card-body">
                                     <h5 class="card-title">Diagnosa <span>| Chart</span></h5>
 
-                                    <canvas id="penyakitChart"></canvas>
+                                    <p>{{ $diagnosa }}</p>
+                                    <canvas id="penyakitChart2">
+                                    </canvas>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", () => {
+                                            new Chart(document.querySelector('#penyakitChart2'), {
+                                                type: 'bar',
+                                                data: {
+                                                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                                                    datasets: [{
+                                                        label: 'Bar Chart',
+                                                        data: [65, 59, 80, 81, 56, 55, 40],
+                                                        backgroundColor: [
+                                                            'rgba(255, 99, 132, 0.2)',
+                                                            'rgba(255, 159, 64, 0.2)',
+                                                            'rgba(255, 205, 86, 0.2)',
+                                                            'rgba(75, 192, 192, 0.2)',
+                                                            'rgba(54, 162, 235, 0.2)',
+                                                            'rgba(153, 102, 255, 0.2)',
+                                                            'rgba(201, 203, 207, 0.2)'
+                                                        ],
+                                                        borderColor: [
+                                                            'rgb(255, 99, 132)',
+                                                            'rgb(255, 159, 64)',
+                                                            'rgb(255, 205, 86)',
+                                                            'rgb(75, 192, 192)',
+                                                            'rgb(54, 162, 235)',
+                                                            'rgb(153, 102, 255)',
+                                                            'rgb(201, 203, 207)'
+                                                        ],
+                                                        borderWidth: 1
+                                                    }]
+                                                },
+                                                options: {
+                                                    scales: {
+                                                        y: {
+                                                            beginAtZero: true
+                                                        }
+                                                    }
+                                                }
+                                            });
+                                        });
+                                    </script>
                                 </div>
                             </div>
-                        </div><!-- End Customers Card -->
+                        </div> --}}
+                        <!-- End Customers Card -->
+
 
                         <!-- Recent Sales -->
 
@@ -108,63 +192,6 @@
         </section>
 
     </main><!-- End #main -->
-    {{-- <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const dataChart = @json($data_chart);
 
-            const labels = Object.keys(dataChart);
-            const data = Object.values(dataChart);
-
-            const backgroundColors = labels.map((label, index) => {
-                const colors = [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ];
-                return colors[index % colors.length];
-            });
-
-            const borderColors = labels.map((label, index) => {
-                const colors = [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ];
-                return colors[index % colors.length];
-            });
-
-            const ctx = document.getElementById('diagnosaChart').getContext('2d');
-            const diagnosaChart = new Chart(ctx, {
-                type: 'pie',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        data: data,
-                        backgroundColor: backgroundColors,
-                        borderColor: borderColors,
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                        },
-                        title: {
-                            display: true,
-                            text: 'Diagnosa Penyakit'
-                        }
-                    }
-                }
-            });
-        }); --}}
-    </script>
 
 @endsection

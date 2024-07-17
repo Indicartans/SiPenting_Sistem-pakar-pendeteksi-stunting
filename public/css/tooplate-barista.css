@@ -660,11 +660,7 @@ strong {
 }
 
 .team-block-info {
-    background-image: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.35),
-        rgba(188, 108, 37, 1)
-    );
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), #276e24);
     position: absolute;
     z-index: 2;
     top: 0;
