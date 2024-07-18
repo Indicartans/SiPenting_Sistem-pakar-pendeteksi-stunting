@@ -21,7 +21,7 @@
                 @csrf
                 <section id="faq" class="bg-light py-5 rounded">
                     <div class="container">
-                        <h2 class="text-center mb-5 entry-title" style="color: #055596">Validasi Usia anak</h2>
+                        <h2 class="text-center mb-5 entry-title" style="color: #055596">Data Diri Anak</h2>
                         {{-- <div class="accordion" id="faqAccordion">
                             <div class="card mb-3">
                                 <div class="card-header" id="headingOne">
@@ -86,14 +86,91 @@
                                 </div>
                             </div>
                         </div> --}}
-                        <p class="fw-normal" style="color: black">Silahkan pilih rentang usia anak anda</p>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">Pilih rentang usia anak anda</span>
-                            <select name="usia" id="usia" class="form-select">
-                                <option value="1">1-12 Bulan</option>
-                                <option value="2">1-5 tahun</option>
-                            </select>
+                        <div class="row mb-3">
+                            <p class="fw-norma text-center" style="color: black">Silahkan isi data diri anak anda
+                            </p>
+                            <div class="row mb-3">
+                                <label for="name"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Nama Orangtua') }}</label>
+                                <div class="col-md-6">
+                                    <input id="name" type="text"
+                                        class="form-control @error('name') is-invalid @enderror" name="nama_orangtua"
+                                        value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="name"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Nama Anak') }}</label>
+                                <div class="col-md-6">
+                                    <input id="name" type="text"
+                                        class="form-control @error('name') is-invalid @enderror" name="nama_anak"
+                                        value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="name"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Usia') }}</label>
+                                <div class="col-md-6">
+                                    {{-- <input id="name" type="text"
+                                        class="form-control @error('name') is-invalid @enderror" name="usia"
+                                        value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror --}}
+                                    <select name="usia" id="usia" class="form-control">
+                                        <option value="1">Kurang dari 1 Tahun</option>
+                                        <option value="1">1 Tahun</option>
+                                        <option value="2">2 Tahun</option>
+                                        <option value="2">3 Tahun</option>
+                                        <option value="2">4 Tahun</option>
+                                        <option value="2">5 Tahun</option>
+                                        {{-- <option value="2">1-5 tahun</option> --}}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="name"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Kontak') }}</label>
+                                <div class="col-md-6">
+                                    <input id="name" type="text"
+                                        class="form-control @error('name') is-invalid @enderror" name="kontak"
+                                        value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="name"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Alamat') }}</label>
+                                <div class="col-md-6">
+                                    <input id="name" type="text"
+                                        class="form-control @error('name') is-invalid @enderror" name="alamat"
+                                        value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
                         </div>
+
 
                         <div class='gform_page_footer top_label d-flex justify-content-end'>
                             {{-- <a href="/form" id="nextbtn" class='btn btn-primary'>Next</a> --}}

@@ -32,7 +32,7 @@
             <a class="nav-link {{ request()->routeIs('depresi.index') ? '' : 'collapsed' }} {{ request()->routeIs('depresi.index') ? 'active' : '' }}"
                 href="{{ route('depresi.index') }}">
                 <i class="bi bi-patch-question"></i>
-                <span>Stunting</span>
+                <span>Penyakit</span>
             </a>
         </li><!-- End Depresi Page Nav -->
 

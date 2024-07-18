@@ -23,12 +23,8 @@ class FormController extends Controller
             $exception = ['G005', 'G002'];
         }
 
-        // $data = Gejala::all();
-        // dd($data->kode_gejala);
-        // $filteredData = $data->except($exception);
         $gejala = Gejala::where('kode_gejala', '<>', $exception)->get();
         $kondisi_user = KondisiUser::all();
-        // dd($kondisi_user->all());
 
         return view('form', compact('gejala', 'kondisi_user'));
     }
