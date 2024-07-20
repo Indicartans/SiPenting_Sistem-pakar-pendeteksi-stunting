@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GejalaController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DataKesehatanController;
 use App\Http\Controllers\DiagnosaController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\KeputusanController;
@@ -100,4 +101,7 @@ Route::get('/spk/result/{diagnosa_id}', [DiagnosaController::class, 'diagnosaRes
 Route::resource('/artikel', HomeArtikelController::class);
 Route::get('artikel/{slug}', [HomeArtikelController::class, 'show'])->name('artikel.show');
 
+Route::resource('/kesehatan', DataKesehatanController::class);
+Route::get('/kesehatan/data', [DataKesehatanController::class, 'getData'])->name('data.anak');
+Route::get('/downloadpdf', [DataKesehatanController::class, 'generatePDF'])->name('download.pdf');
 Auth::routes();

@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('nama_orangtua');
             $table->string('nama_anak');
             $table->integer('usia');
+            $table->string('penyakit');
+            $table->float('presentase');
             $table->string('kontak');
             $table->text('alamat');
             $table->timestamps();

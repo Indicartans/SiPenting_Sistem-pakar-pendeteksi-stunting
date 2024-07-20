@@ -16,16 +16,16 @@ class FormController extends Controller
         $usia = $request->usia;
         // dd($usia);
 
-        $data = [];
         if ($usia == 1) {
             $exception = ['G009', 'G028', 'G008'];
-        } elseif ($usia == 2) {
+        } elseif ($usia > 1) {
             $exception = ['G005', 'G002'];
         }
 
         $gejala = Gejala::where('kode_gejala', '<>', $exception)->get();
         $kondisi_user = KondisiUser::all();
+        $dataAnak = $request;
 
-        return view('form', compact('gejala', 'kondisi_user'));
+        return view('form', compact('gejala', 'kondisi_user', 'dataAnak'));
     }
 }

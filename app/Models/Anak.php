@@ -13,6 +13,8 @@ class Anak extends Model
         'nama_orangtua',
         'nama_anak',
         'usia',
+        'penyakit',
+        'presentase',
         'kontak',
         'alamat'
     ];

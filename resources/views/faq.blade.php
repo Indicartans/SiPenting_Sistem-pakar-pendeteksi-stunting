@@ -133,9 +133,9 @@
                                         <option value="1">Kurang dari 1 Tahun</option>
                                         <option value="1">1 Tahun</option>
                                         <option value="2">2 Tahun</option>
-                                        <option value="2">3 Tahun</option>
-                                        <option value="2">4 Tahun</option>
-                                        <option value="2">5 Tahun</option>
+                                        <option value="3">3 Tahun</option>
+                                        <option value="4">4 Tahun</option>
+                                        <option value="5">5 Tahun</option>
                                         {{-- <option value="2">1-5 tahun</option> --}}
                                     </select>
                                 </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Diagnosa;
 use App\Http\Requests\StoreDiagnosaRequest;
 use App\Http\Requests\UpdateDiagnosaRequest;
+use App\Models\Anak;
 use App\Models\Artikel;
 use App\Models\Gejala;
 use App\Models\Keputusan;
@@ -116,7 +117,22 @@ class DiagnosaController extends Controller
             'kondisi' => json_encode($bobotPilihan)
         ]);
         // dd($ins);
-        return redirect()->route('spk.result', ["diagnosa_id" => $diagnosa_id]);
+
+        $dataAnak = [
+            'nama_orangtua' => $request->nama_orangtua,
+            'nama_anak' => $request->nama_anak,
+            'usia' => $request->usia,
+            'kontak' => $request->kontak,
+            'alamat' => $request->alamat
+        ];
+
+        session(['data_anak' => $dataAnak]);
+        // $cek_data = session('data_anak');
+        // dd($cek_data);
+
+        return redirect()->route('spk.result', [
+            "diagnosa_id" => $diagnosa_id,
+        ]);
     }
 
     public function getGabunganCf($cfArr)
@@ -158,6 +174,8 @@ class DiagnosaController extends Controller
 
     public function diagnosaResult($diagnosa_id)
     {
+        $data_anak = session('data_anak');
+        // dd($data_anak);
         $diagnosa = Diagnosa::where('diagnosa_id', $diagnosa_id)->first();
         $gejala = json_decode($diagnosa->kondisi, true);
         $data_diagnosa = json_decode($diagnosa->data_diagnosa, true);
@@ -213,9 +231,20 @@ class DiagnosaController extends Controller
         $cfKombinasi = $this->getCfCombinasi($nilaiPakar, $nilaiUser);
         // dd($cfKombinasi);
         $hasil = $this->getGabunganCf($cfKombinasi);
+        // dd($diagnosa_dipilih);
+        // dd($data_anak);
         // dd($hasil);
-
         $artikel = Artikel::where('kode_depresi', $kode_depresi)->first();
+
+        Anak::create([
+            'nama_orangtua' => $data_anak["nama_orangtua"],
+            'nama_anak' => $data_anak["nama_anak"],
+            'usia' => $data_anak["usia"],
+            'penyakit' => $diagnosa_dipilih["kode_depresi"]->depresi,
+            'presentase' => round($hasil['value'] * 100, 2),
+            'kontak' => $data_anak["kontak"],
+            'alamat' => $data_anak["alamat"]
+        ]);
 
         return view('clients.cl_diagnosa_result', [
             "diagnosa" => $diagnosa,

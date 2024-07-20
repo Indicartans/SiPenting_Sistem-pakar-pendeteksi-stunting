@@ -59,6 +59,16 @@
             </a>
         </li><!-- End Depresi Page Nav -->
 
+        <li class="nav-heading">Laporan</li>
+
+        <li class="nav-item">
+            <a class="nav-link {{ request()->is('kesehatan') ? '' : 'collapsed' }} {{ request()->is('kesehatan') ? 'active' : '' }}"
+                href="/kesehatan">
+                <i class="bi bi-filetype-pdf"></i>
+                <span>Data Kesehatan</span>
+            </a>
+        </li>
+
         <li class="nav-heading">Pengaturan</li>
 
         <li class="nav-item">

@@ -205,6 +205,11 @@
                             <div class='gform_page_fields'>
                                 <ul id='gform_fields_1'
                                     class='gform_fields top_label form_sublabel_below description_above'>
+                                    <input type="hidden" name="nama_orangtua" value="{{ $dataAnak->nama_orangtua }}">
+                                    <input type="hidden" name="nama_anak" value="{{ $dataAnak->nama_anak }}">
+                                    <input type="hidden" name="usia" value="{{ $dataAnak->usia }}">
+                                    <input type="hidden" name="kontak" value="{{ $dataAnak->kontak }}">
+                                    <input type="hidden" name="alamat" value="{{ $dataAnak->alamat }}">
                                     @foreach ($gejala as $item)
                                         <li id="field_{{ $loop->iteration }}"
                                             class="gfield question gfield_contains_required field_sublabel_below field_description_above gfield_visibility_visible"
