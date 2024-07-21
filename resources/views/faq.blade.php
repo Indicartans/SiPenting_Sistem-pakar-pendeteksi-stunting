@@ -89,13 +89,26 @@
                         <div class="row mb-3">
                             <p class="fw-norma text-center" style="color: black">Silahkan isi data diri anak anda
                             </p>
+                            {{-- @if (session()->has('pesan'))
+                                {!! session('pesan') !!}
+                            @endif --}}
+                            @if ($errors->any())
+                                <div class="alert alert-danger mt-3 p-3">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
                             <div class="row mb-3">
                                 <label for="name"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Nama Orangtua') }}</label>
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                         class="form-control @error('name') is-invalid @enderror" name="nama_orangtua"
-                                        value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        required autocomplete="name" autofocus>
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -108,8 +121,8 @@
                                     class="col-md-4 col-form-label text-md-end">{{ __('Nama Anak') }}</label>
                                 <div class="col-md-6">
                                     <input id="name" type="text"
-                                        class="form-control @error('name') is-invalid @enderror" name="nama_anak"
-                                        value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        class="form-control @error('name') is-invalid @enderror" name="nama_anak" required
+                                        autocomplete="name" autofocus>
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -118,17 +131,10 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="name"
+                                <label for="usia"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Usia') }}</label>
                                 <div class="col-md-6">
-                                    {{-- <input id="name" type="text"
-                                        class="form-control @error('name') is-invalid @enderror" name="usia"
-                                        value="{{ old('name') }}" required autocomplete="name" autofocus>
-                                    @error('name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror --}}
+
                                     <select name="usia" id="usia" class="form-control">
                                         <option value="1">Kurang dari 1 Tahun</option>
                                         <option value="1">1 Tahun</option>
@@ -141,12 +147,12 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="name"
+                                <label for="kontak"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Kontak') }}</label>
                                 <div class="col-md-6">
                                     <input id="name" type="text"
-                                        class="form-control @error('name') is-invalid @enderror" name="kontak"
-                                        value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        class="form-control @error('name') is-invalid @enderror" name="kontak" required
+                                        autocomplete="name" autofocus>
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -155,12 +161,12 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="name"
+                                <label for="alamat"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Alamat') }}</label>
                                 <div class="col-md-6">
                                     <input id="name" type="text"
-                                        class="form-control @error('name') is-invalid @enderror" name="alamat"
-                                        value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        class="form-control @error('name') is-invalid @enderror" name="alamat" required
+                                        autocomplete="name" autofocus>
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -168,7 +174,6 @@
                                     @enderror
                                 </div>
                             </div>
-
                         </div>
 
 

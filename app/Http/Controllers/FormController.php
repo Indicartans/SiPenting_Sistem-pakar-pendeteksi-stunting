@@ -12,6 +12,13 @@ class FormController extends Controller
     public function index(Request $request)
     {
         // dd($request->all());
+        $request->validate([
+            'nama_orangtua' => 'required|string',
+            'nama_anak' => 'required|string',
+            'usia' => 'required',
+            'kontak' => 'required|integer',
+            'alamat' => 'required'
+        ]);
 
         $usia = $request->usia;
         // dd($usia);
