@@ -14,7 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::all();
+        return view('admin.User.list_admin', compact('user'));
     }
 
     /**
@@ -24,7 +25,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $role = User::pluck('role');
+        return view('admin.User.add_admin', compact('role'));
     }
 
     /**
@@ -35,7 +37,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'role' => $request->role
+        ]);
+
+        return redirect()->route('admin.index')->with('pesan', 'Berhasil menambahkan pengguna');
     }
 
     /**
@@ -67,10 +78,32 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
+        // dd($request->all(), $id);
+        // Validasi input
+        // $request->validate([
+        //     'name' => 'required|string|max:255',
+        //     'email' => 'required|string|email|max:255|unique:users,email,' . $id,
+        //     'password' => 'nullable|string|min:8|confirmed',
+        //     'role' => 'required|string'
+        // ]);
+
+        $request["password"] = bcrypt($request->password);
+
+        $update = User::find($id)->update($request->all());
+        if ($update) {
+            return redirect()->route('admin.index')->with('pesan', 'pengguna berhasil di update');
+        }
+        return redirect()->route('admin.index')->with('pesan', 'admin kontol');
+        // dd($request->all(), $id);
         //
+        // dd($valid);
+        // Temukan user berdasarkan ID
+
+        // Redirect ke halaman daftar admin dengan pesan sukses
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -78,8 +111,16 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        $user = User::find($id);
+
+        if (!$user) {
+            return redirect()->route('admin.index')->with('pesan', 'pengguna ditemukan');
+        }
+        $user->delete();
+
+        // Redirect dengan pesan sukses
+        return redirect()->route('admin.index')->with('pesan', 'pengguna telah dihapus');
     }
 }

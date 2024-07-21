@@ -19,7 +19,7 @@
         <section class="section dashboard">
             <div class="row">
 
-                <form method="POST" action="{{ route('register') }}">
+                <form method="POST" action="{{ route('admin.store') }}">
                     @csrf
                     <div class="row mb-3">
                         <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
@@ -72,6 +72,18 @@
                         <div class="col-md-6">
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
                                 required autocomplete="new-password">
+                        </div>
+                    </div>
+                    {{-- {{ dd($role) }} --}}
+
+                    <div class="row mb-3">
+                        <label for="role" class="col-md-4 col-form-label text-md-end">{{ __('Role') }}</label>
+
+                        <div class="col-md-6">
+                            <select name="role" id="role" class="form-control">
+                                <option value="pakar">Pakar</option>
+                                <option value="kelurahan">Kelurahan</option>
+                            </select>
                         </div>
                     </div>
 

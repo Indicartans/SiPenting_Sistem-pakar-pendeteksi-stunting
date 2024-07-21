@@ -16,6 +16,7 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\KeputusanController;
 use App\Http\Controllers\HomeArtikelController;
 use App\Http\Controllers\TingkatDepresiController;
+use App\Http\Controllers\UserController;
 // use Clockwork\Request\Request;
 use Illuminate\Http\Request;
 
@@ -59,6 +60,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/keterangan', ArtikelController::class);
     Route::resource('/keterangan', ArtikelController::class);
     Route::resource('/pengetahuan', KeputusanController::class);
+    Route::resource('/admin', UserController::class);
 });
 
 Route::get('/form', [FormController::class, 'index']);

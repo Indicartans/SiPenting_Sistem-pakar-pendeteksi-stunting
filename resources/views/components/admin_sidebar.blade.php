@@ -84,12 +84,12 @@
                     class="nav-content collapse {{ request()->is('dashboard/add_admin') || request()->is('dashboard/admin') ? 'show' : '' }}"
                     data-bs-parent="#sidebar-nav">
                     <li>
-                        <a class="{{ request()->is('dashboard/add_admin') ? 'active' : '' }}" href="/dashboard/add_admin">
+                        <a class="{{ request()->is('/admin/create') ? 'active' : '' }}" href="/admin/create">
                             <i class="bi bi-circle"></i><span>Tambah Admin</span>
                         </a>
                     </li>
                     <li>
-                        <a class="{{ request()->is('dashboard/admin') ? 'active' : '' }}" href="/dashboard/admin">
+                        <a class="{{ request()->is('/admin') ? 'active' : '' }}" href="/admin">
                             <i class="bi bi-circle"></i><span>Daftar Admin</span>
                         </a>
                     </li>
