@@ -15,6 +15,8 @@ class TingkatDepresiController extends Controller
      */
     public function index()
     {
+        $this->authorize('pakar');
+
         return view('admin.depresi.depresi', [
             'depresi' => TingkatDepresi::all()
         ]);
@@ -38,6 +40,8 @@ class TingkatDepresiController extends Controller
      */
     public function store(StoreTingkatDepresiRequest $request)
     {
+        $this->authorize('pakar');
+
         $valid = $request->validate([
             'kode_depresi' => 'required|unique:tingkat_depresi,kode_depresi',
             'depresi' => 'required'
@@ -79,6 +83,8 @@ class TingkatDepresiController extends Controller
      */
     public function update(UpdateTingkatDepresiRequest $request, $tingkatDepresi)
     {
+        $this->authorize('pakar');
+
         $valid = $request->validate([
             'depresi' => 'required'
         ]);
@@ -97,6 +103,8 @@ class TingkatDepresiController extends Controller
      */
     public function destroy($tingkatDepresi)
     {
+        $this->authorize('pakar');
+
         // dd($tingkatDepresi);
         TingkatDepresi::find($tingkatDepresi)->delete();
         return redirect()->route('depresi.index')->with('pesan', '<div class="alert alert-success p-3 mt-3" role="alert">

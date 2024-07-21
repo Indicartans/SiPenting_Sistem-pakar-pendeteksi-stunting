@@ -33,6 +33,8 @@ class DataKesehatanController extends Controller
 
     public function generatePDF()
     {
+
+        $this->authorize('kelurahan');
         $data = Anak::all();
 
         $pdf = PDF::loadView('kelurahan.dataKesehatan.data_kesehatanPDF', compact('data'));

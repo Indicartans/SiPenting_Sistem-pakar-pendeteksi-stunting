@@ -30,6 +30,7 @@ class DiagnosaController extends Controller
      */
     public function index()
     {
+        $this->authorize('pakar');
         $diagnosa = Diagnosa::all();
 
         return view('admin.diagnosa.admin_semua_diagnosa', [

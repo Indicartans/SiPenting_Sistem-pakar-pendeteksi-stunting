@@ -14,6 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
+        $this->authorize('pakar');
         $user = User::all();
         return view('admin.User.list_admin', compact('user'));
     }
@@ -38,7 +39,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-
+        $this->authorize('pakar');
         User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -113,6 +114,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('pakar');
         $user = User::find($id);
 
         if (!$user) {

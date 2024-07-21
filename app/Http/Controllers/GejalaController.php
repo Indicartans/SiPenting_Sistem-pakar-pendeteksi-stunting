@@ -16,6 +16,8 @@ class GejalaController extends Controller
      */
     public function index()
     {
+        $this->authorize('pakar');
+
         $gejala = Gejala::paginate(15);
         return view('admin.gejala.gejala', compact('gejala'));
     }
@@ -39,6 +41,9 @@ class GejalaController extends Controller
     public function store(StoreGejalaRequest $request)
     {
         // dd($request->all());
+
+        $this->authorize('pakar');
+
         $valid = $request->validate([
             "kode_gejala" => 'required|unique:gejala,kode_gejala',
             'gejala' => 'required|unique:gejala,gejala'
@@ -80,6 +85,9 @@ class GejalaController extends Controller
      */
     public function update(UpdateGejalaRequest $request, Gejala $gejala)
     {
+        $this->authorize('pakar');
+
+
         $valid = $request->validate([
             "gejala" => "required"
         ]);
@@ -98,6 +106,8 @@ class GejalaController extends Controller
     public function destroy(Gejala $gejala)
     {
         // dd($gejala->kode_gejala);
+        $this->authorize('pakar');
+
         Keputusan::where('kode_gejala', $gejala->kode_gejala)->delete();
 
         $gejala->delete();

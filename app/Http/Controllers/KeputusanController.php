@@ -17,6 +17,9 @@ class KeputusanController extends Controller
      */
     public function index()
     {
+
+        $this->authorize('pakar');
+
         $pengetahuan = Keputusan::with(['gejala', 'depresi'])->paginate(15);
         $penyakit = TingkatDepresi::all();
         $gejala = Gejala::all();
@@ -42,6 +45,8 @@ class KeputusanController extends Controller
     public function store(StoreKeputusanRequest $request)
     {
         // dd($request->all());
+        $this->authorize('pakar');
+
         $valid = $request->validate([
             'kode_depresi' => 'required',
             'kode_gejala' => 'required',
@@ -88,7 +93,7 @@ class KeputusanController extends Controller
     {
         // Debug untuk memastikan data request diterima dengan benar
         // dd($request->all(), $keputusan);
-
+        $this->authorize('pakar');
         // Validasi data yang diterima
         $valid = $request->validate([
             'kode_depresi' => 'required',
@@ -127,6 +132,7 @@ class KeputusanController extends Controller
     public function destroy($keputusan)
     {
         // dd($keputusan);
+        $this->authorize('pakar');
         Keputusan::find($keputusan)->delete();
         return redirect()->route('pengetahuan.index')->with('pesan', '<div class="alert alert-success p-3 mt-3" role="alert">
         pengetahuan telah dihapus

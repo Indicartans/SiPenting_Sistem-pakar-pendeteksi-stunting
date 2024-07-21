@@ -21,29 +21,7 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
     {{-- import gemini AI --}}
-    <script type="importmap">
-        {
-          "imports": {
-            "@google/generative-ai": "https://esm.run/@google/generative-ai"
-          }
-        }
-    </script>
 
-    <script type="module">
-        import {
-            GoogleGenerativeAI
-        } from "@google/generative-ai";
-
-        // Fetch your API_KEY
-        const API_KEY = "AIzaSyCR13LBs3jJ1RyAivYhdhW5jSv3gGfXpGY";
-
-        // Access your API key (see "Set up your API key" above)
-        const genAI = new GoogleGenerativeAI(API_KEY);
-
-        const model = genAI.getGenerativeModel({
-            model: "gemini-1.5-flash"
-        });
-    </script>
 
     @yield('external_assets')
 

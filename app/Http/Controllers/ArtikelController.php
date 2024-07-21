@@ -20,6 +20,8 @@ class ArtikelController extends Controller
      */
     public function index()
     {
+        $this->authorize('pakar');
+
         $keterangan = Artikel::with('depresi')->get();
         $penyakit = TingkatDepresi::all();
         return view('admin.keterangan.keterangan', compact('keterangan', 'penyakit'));
@@ -44,6 +46,9 @@ class ArtikelController extends Controller
     public function store(StoreArtikelRequest $request)
     {
         // ddd($request);
+
+        $this->authorize('pakar');
+
         $validatedData = $request->validate([
             'kode_depresi' => 'required',
             // 'judul' => 'required',
@@ -114,6 +119,7 @@ class ArtikelController extends Controller
     public function update(UpdateArtikelRequest $request, $artikel)
     {
         // dd($request->all());
+        $this->authorize('pakar');
 
         // Validasi data yang diterima
         $valid = $request->validate([
@@ -157,6 +163,7 @@ class ArtikelController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('pakar');
         // Ambil artikel berdasarkan ID
         $artikel = Artikel::find($id);
 
