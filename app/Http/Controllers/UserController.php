@@ -2,41 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Anak;
-use Database\Factories\AnakFactory;
-use Dompdf\Dompdf;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Termwind\Components\Dd;
-use Yajra\DataTables\DataTables;
-use PDF;
 
-class DataKesehatanController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        // dd($request);
-        // if ($request->ajax) {
-        $this->authorize('kelurahan');
-        $data = Anak::all();
-
-        return view('kelurahan.dataKesehatan.index', compact('data'));
-    }
-
-    public function getData(Request $request)
-    {
-    }
-
-    public function generatePDF()
-    {
-        $data = Anak::all();
-
-        $pdf = PDF::loadView('kelurahan.dataKesehatan.data_kesehatanPDF', compact('data'));
-        return $pdf->download('data-kesehatan.pdf');
+        //
     }
 
     /**
@@ -63,10 +41,10 @@ class DataKesehatanController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Anak  $anak
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Anak $anak)
+    public function show(User $user)
     {
         //
     }
@@ -74,10 +52,10 @@ class DataKesehatanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Anak  $anak
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Anak $anak)
+    public function edit(User $user)
     {
         //
     }
@@ -86,10 +64,10 @@ class DataKesehatanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Anak  $anak
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Anak $anak)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -97,10 +75,10 @@ class DataKesehatanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Anak  $anak
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Anak $anak)
+    public function destroy(User $user)
     {
         //
     }

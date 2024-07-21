@@ -28,7 +28,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link click-scroll {{ Request::is('/#section_4') ? 'active' : 'inactive' }}"
-                        href="#section_4">About</a>
+                        href="/#section_4">About</a>
                 </li>
             </ul>
 

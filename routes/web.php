@@ -30,12 +30,9 @@ use Illuminate\Http\Request;
 |
 */
 
-
-
 Route::get('/', function () {
     return view('landing');
 });
-
 
 Route::middleware('auth')->group(function () {
 
@@ -51,9 +48,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/add_admin', function () {
         return view('admin.add_admin');
     });
-
-
-
 
     Route::get('/home', function () {
         return redirect('/dashboard');
