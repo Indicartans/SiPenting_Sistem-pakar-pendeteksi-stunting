@@ -38,6 +38,8 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/chart', [DashboardController::class, 'chartData']);
+
 
     Route::get('/dashboard/admin', function () {
         $data = [

@@ -14,5 +14,8 @@
         "lodash": "^4.17.19",
         "sass": "^1.56.1",
         "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "echarts": "^5.5.1"
     }
 }

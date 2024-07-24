@@ -18,8 +18,8 @@
 
     {{-- pie chart --}}
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
+    {{-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script> --}}
     {{-- import gemini AI --}}
 
 

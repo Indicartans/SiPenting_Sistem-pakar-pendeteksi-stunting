@@ -56,6 +56,7 @@
         <thead>
             <tr>
                 <th scope="col">No</th>
+                <th scope="col">Tanggal Screening</th>
                 <th scope="col">Nama Orangtua</th>
                 <th scope="col">Nama Anak</th>
                 <th scope="col">Usia</th>
@@ -63,7 +64,6 @@
                 <th scope="col">Presentase</th>
                 <th scope="col">Kontak</th>
                 <th scope="col">Alamat</th>
-                <th scope="col">Tanggal</th>
             </tr>
         </thead>
         <tbody>
@@ -72,6 +72,7 @@
                     <th scope="row"><a href="#">
                             {{ $loop->iteration }}</a>
                     </th>
+                    <td>{{ $item->created_at->format('d M Y') }}</td>
                     <td>{{ $item->nama_orangtua }}</td>
                     <td>{{ $item->nama_anak }}</td>
                     <td>{{ $item->usia }} tahun</td>
@@ -79,7 +80,6 @@
                     <td>{{ $item->presentase }}%</td>
                     <td>{{ $item->kontak }}</td>
                     <td>{{ $item->alamat }}</td>
-                    <td>{{ $item->created_at->format('d M Y') }}</td>
 
                 </tr>
             @endforeach
