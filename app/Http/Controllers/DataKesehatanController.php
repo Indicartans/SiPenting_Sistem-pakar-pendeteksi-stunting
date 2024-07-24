@@ -24,11 +24,15 @@ class DataKesehatanController extends Controller
         $this->authorize('kelurahan');
         $data = Anak::all();
 
+
         return view('kelurahan.dataKesehatan.index', compact('data'));
     }
 
     public function getData(Request $request)
     {
+        // $anak = Anak::all();
+
+        // return route("nama.anak", compact('anak'));
     }
 
     public function generatePDF()

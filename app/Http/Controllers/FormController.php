@@ -16,7 +16,7 @@ class FormController extends Controller
             'nama_orangtua' => 'required|string',
             'nama_anak' => 'required|string',
             'usia' => 'required',
-            'kontak' => 'required|integer',
+            'kontak' => 'required',
             'alamat' => 'required'
         ]);
 

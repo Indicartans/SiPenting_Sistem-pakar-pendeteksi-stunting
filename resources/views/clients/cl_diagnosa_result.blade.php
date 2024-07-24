@@ -50,6 +50,41 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                <h5 class="fw-semibold">Data Anak</h5>
+                                {{-- @php
+                                    dd($data_anak);
+                                @endphp --}}
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Data</th>
+                                            <th scope="col">Isi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Nama Orangtua</td>
+                                            <td>{{ $data_anak['nama_orangtua'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nama Anak</td>
+                                            <td>{{ $data_anak['nama_anak'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Usia</td>
+                                            <td>{{ $data_anak['usia'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kontak</td>
+                                            <td>{{ $data_anak['kontak'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Alamat</td>
+                                            <td>{{ $data_anak['alamat'] }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
                                 <p class="fw-semibold">Berdasarkan dari gejala yang anda isikan dapat disimpulkan bahwa anak
                                     anda
                                     memiliki penyakit

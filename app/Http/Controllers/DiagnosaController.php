@@ -256,7 +256,8 @@ class DiagnosaController extends Controller
             "gejala_by_user" => $gejala_by_user,
             "cf_kombinasi" => $cfKombinasi,
             "hasil" => $hasil,
-            "artikel" => $artikel
+            "artikel" => $artikel,
+            "data_anak" =>  $data_anak
         ]);
     }
 
