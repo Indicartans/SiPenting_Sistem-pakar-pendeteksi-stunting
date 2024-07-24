@@ -86,126 +86,130 @@
                                 </div>
                             </div>
                         </div><!-- End Customers Card -->
+                        @can('kelurahan')
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Jumlah Penyakit Tiap Bulan</h5>
+                                        <!-- Bar Chart -->
+                                        <canvas id="barChart" style="max-height: 400px;"></canvas>
 
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Jumlah Penyakit Tiap Bulan</h5>
-                                    <!-- Bar Chart -->
-                                    <canvas id="barChart" style="max-height: 400px;"></canvas>
+                                        <script>
+                                            document.addEventListener("DOMContentLoaded", () => {
+                                                fetch('/chart')
+                                                    .then(response => response.json())
+                                                    .then(data => {
+                                                        const barData = data.barData;
 
-                                    <script>
-                                        document.addEventListener("DOMContentLoaded", () => {
-                                            fetch('/chart')
-                                                .then(response => response.json())
-                                                .then(data => {
-                                                    const barData = data.barData;
+                                                        // Menyiapkan data untuk Bar Chart
+                                                        const barLabels = [...new Set(barData.map(item => item.bulan))];
+                                                        const barDatasets = {};
 
-                                                    // Menyiapkan data untuk Bar Chart
-                                                    const barLabels = [...new Set(barData.map(item => item.bulan))];
-                                                    const barDatasets = {};
+                                                        barData.forEach(item => {
+                                                            if (!barDatasets[item.penyakit]) {
+                                                                barDatasets[item.penyakit] = Array(barLabels.length).fill(0);
+                                                            }
+                                                            const index = barLabels.indexOf(item.bulan);
+                                                            barDatasets[item.penyakit][index] = item.jumlah;
+                                                        });
 
-                                                    barData.forEach(item => {
-                                                        if (!barDatasets[item.penyakit]) {
-                                                            barDatasets[item.penyakit] = Array(barLabels.length).fill(0);
-                                                        }
-                                                        const index = barLabels.indexOf(item.bulan);
-                                                        barDatasets[item.penyakit][index] = item.jumlah;
-                                                    });
+                                                        const barChartData = {
+                                                            labels: barLabels,
+                                                            datasets: Object.keys(barDatasets).map(penyakit => ({
+                                                                label: penyakit,
+                                                                data: barDatasets[penyakit],
+                                                                backgroundColor: getRandomColor(),
+                                                                borderColor: 'rgba(75, 192, 192, 1)',
+                                                                borderWidth: 1
+                                                            })),
+                                                        };
 
-                                                    const barChartData = {
-                                                        labels: barLabels,
-                                                        datasets: Object.keys(barDatasets).map(penyakit => ({
-                                                            label: penyakit,
-                                                            data: barDatasets[penyakit],
-                                                            backgroundColor: getRandomColor(),
-                                                            borderColor: 'rgba(75, 192, 192, 1)',
-                                                            borderWidth: 1
-                                                        })),
-                                                    };
-
-                                                    // Membuat Bar Chart
-                                                    const ctxBar = document.getElementById('barChart').getContext('2d');
-                                                    new Chart(ctxBar, {
-                                                        type: 'bar',
-                                                        data: barChartData,
-                                                        options: {
-                                                            scales: {
-                                                                y: {
-                                                                    beginAtZero: true
+                                                        // Membuat Bar Chart
+                                                        const ctxBar = document.getElementById('barChart').getContext('2d');
+                                                        new Chart(ctxBar, {
+                                                            type: 'bar',
+                                                            data: barChartData,
+                                                            options: {
+                                                                scales: {
+                                                                    y: {
+                                                                        beginAtZero: true
+                                                                    }
                                                                 }
                                                             }
-                                                        }
+                                                        });
                                                     });
-                                                });
-                                        });
+                                            });
 
-                                        // Fungsi untuk menghasilkan warna acak
-                                        function getRandomColor() {
-                                            const letters = '0123456789ABCDEF';
-                                            let color = '#';
-                                            for (let i = 0; i < 6; i++) {
-                                                color += letters[Math.floor(Math.random() * 16)];
+                                            // Fungsi untuk menghasilkan warna acak
+                                            function getRandomColor() {
+                                                const letters = '0123456789ABCDEF';
+                                                let color = '#';
+                                                for (let i = 0; i < 6; i++) {
+                                                    color += letters[Math.floor(Math.random() * 16)];
+                                                }
+                                                return color;
                                             }
-                                            return color;
-                                        }
-                                    </script>
-                                    <!-- End Bar Chart -->
+                                        </script>
+                                        <!-- End Bar Chart -->
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Jumlah Penderita Tiap Penyakit</h5>
-                                    <!-- Doughnut Chart -->
-                                    <canvas id="doughnutChart" style="max-height: 400px;"></canvas>
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Jumlah Penderita Tiap Penyakit</h5>
+                                        <!-- Doughnut Chart -->
+                                        <canvas id="doughnutChart" style="max-height: 400px;"></canvas>
 
-                                    <script>
-                                        document.addEventListener("DOMContentLoaded", () => {
-                                            fetch('/chart')
-                                                .then(response => response.json())
-                                                .then(data => {
-                                                    const doughnutData = data.doughnutData;
+                                        <script>
+                                            document.addEventListener("DOMContentLoaded", () => {
+                                                fetch('/chart')
+                                                    .then(response => response.json())
+                                                    .then(data => {
+                                                        const doughnutData = data.doughnutData;
 
-                                                    // Menyiapkan data untuk Doughnut Chart
-                                                    const doughnutLabels = doughnutData.map(item => item.penyakit);
-                                                    const doughnutValues = doughnutData.map(item => item.jumlah);
-                                                    const doughnutColors = doughnutLabels.map(() => getRandomColor());
+                                                        // Menyiapkan data untuk Doughnut Chart
+                                                        const doughnutLabels = doughnutData.map(item => item.penyakit);
+                                                        const doughnutValues = doughnutData.map(item => item.jumlah);
+                                                        const doughnutColors = doughnutLabels.map(() => getRandomColor());
 
-                                                    const doughnutChartData = {
-                                                        labels: doughnutLabels,
-                                                        datasets: [{
-                                                            data: doughnutValues,
-                                                            backgroundColor: doughnutColors,
-                                                            hoverOffset: 4
-                                                        }]
-                                                    };
+                                                        const doughnutChartData = {
+                                                            labels: doughnutLabels,
+                                                            datasets: [{
+                                                                data: doughnutValues,
+                                                                backgroundColor: doughnutColors,
+                                                                hoverOffset: 4
+                                                            }]
+                                                        };
 
-                                                    // Membuat Doughnut Chart
-                                                    const ctxDoughnut = document.getElementById('doughnutChart').getContext('2d');
-                                                    new Chart(ctxDoughnut, {
-                                                        type: 'doughnut',
-                                                        data: doughnutChartData,
+                                                        // Membuat Doughnut Chart
+                                                        const ctxDoughnut = document.getElementById('doughnutChart').getContext('2d');
+                                                        new Chart(ctxDoughnut, {
+                                                            type: 'doughnut',
+                                                            data: doughnutChartData,
+                                                        });
                                                     });
-                                                });
-                                        });
+                                            });
 
-                                        // Fungsi untuk menghasilkan warna acak
-                                        function getRandomColor() {
-                                            const letters = '0123456789ABCDEF';
-                                            let color = '#';
-                                            for (let i = 0; i < 6; i++) {
-                                                color += letters[Math.floor(Math.random() * 16)];
+                                            // Fungsi untuk menghasilkan warna acak
+                                            function getRandomColor() {
+                                                const letters = '0123456789ABCDEF';
+                                                let color = '#';
+                                                for (let i = 0; i < 6; i++) {
+                                                    color += letters[Math.floor(Math.random() * 16)];
+                                                }
+                                                return color;
                                             }
-                                            return color;
-                                        }
-                                    </script>
-                                    <!-- End Doughnut Chart -->
+                                        </script>
+                                        <!-- End Doughnut Chart -->
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endcan
+                    </div>
+                </div>
+            </div>
         </section>
 
     </main><!-- End #main -->
