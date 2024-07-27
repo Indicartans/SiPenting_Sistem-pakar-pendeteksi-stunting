@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.bootstrap4.min.css">
 @endsection
-{{-- isi --}}
+
 @section('admin_content')
     <!-- Page content-->
     <main id="main" class="main">
@@ -35,14 +35,28 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Data <span>| Kesehatan</span></h5>
                                         <div class="mb-3 d-flex justify-content-end">
+                                            <form action="{{ route('kesehatan.index') }}" method="GET"
+                                                class="d-flex align-items-center">
+                                                <select name="usia" class="form-select"
+                                                    aria-label="Default select example">
+                                                    <option selected disabled>Filter Berdasarkan Usia</option>
+                                                    <option value="">Tampilkan semua</option>
+                                                    <option value="1">1 Tahun</option>
+                                                    <option value="2">2 Tahun</option>
+                                                    <option value="3">3 Tahun</option>
+                                                    <option value="4">4 Tahun</option>
+                                                    <option value="5">5 Tahun</option>
+                                                </select>
+                                                <button type="submit" class="btn btn-primary ms-1"><i
+                                                        class="bi bi-filter"></i></button>
+                                            </form>
                                             <a href="{{ route('download.pdf') }}">
-                                                <button class="btn btn-danger" data-bs-toggle="modal"
-                                                    data-bs-target="#storeModal">
-                                                    <i class="bi bi-filetype-pdf"> Export PDF</i>
+                                                <button class="btn btn-danger ms-3">
+                                                    <i class="bi bi-filetype-pdf"></i> Export PDF
                                                 </button>
                                             </a>
-
                                         </div>
+
                                         <table class="table table-borderless datatable" id="tabel_kesehatan">
                                             <thead>
                                                 <tr>
@@ -55,15 +69,12 @@
                                                     <th scope="col">Presentase</th>
                                                     <th scope="col">Kontak</th>
                                                     <th scope="col">Alamat</th>
-
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($data as $item)
+                                                @forelse ($data as $item)
                                                     <tr>
-                                                        <th scope="row"><a href="#">
-                                                                {{ $loop->iteration }}</a>
-                                                        </th>
+                                                        <th scope="row">{{ $loop->iteration }}</th>
                                                         <td>{{ $item->created_at->format('d M Y') }}</td>
                                                         <td>{{ $item->nama_orangtua }}</td>
                                                         <td>{{ $item->nama_anak }}</td>
@@ -73,83 +84,24 @@
                                                         <td>{{ $item->kontak }}</td>
                                                         <td>{{ $item->alamat }}</td>
                                                     </tr>
-                                                @endforeach
+                                                    {{-- @endforeach --}}
+                                                @empty
+                                                    <tr>
+                                                        <td colspan="9" class="text-center">Data tidak ada</td>
+                                                    </tr>
+                                                @endforelse
                                             </tbody>
                                         </table>
                                     </div>
-
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center">
-                                {{-- {{ $gejala->links('pagination::simple-bootstrap-5') }} --}}
+                                {{-- {{ $data->links('pagination::simple-bootstrap-5') }} --}}
                             </div>
-                            {{-- @include('components.admin_modal_gejala_edit') --}}
                         </div>
-
                     </div>
                 </div><!-- End Left side columns -->
             </div>
         </section>
-
     </main><!-- End #main -->
-
-
-@endsection
-
-@section('external_js')
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.5/js/responsive.bootstrap4.min.js"></script>
-
-    <script></script>
-    <script>
-        $(document).ready(function() {
-            $('#tabel_kesehatan').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: "{{ route('kesehatan.index') }}",
-                columns: [{
-                        data: 'DT_RowIndex',
-                        name: 'DT_RowIndex',
-                        orderable: false,
-                        searchable: false
-                    },
-                    {
-                        data: 'nama_orangtua',
-                        name: 'nama_orangtua'
-                    },
-                    {
-                        data: 'nama_anak',
-                        name: 'nama_anak'
-                    },
-                    {
-                        data: 'usia',
-                        name: 'usia'
-                    },
-                    {
-                        data: 'penyakit',
-                        name: 'penyakit'
-                    },
-                    {
-                        data: 'presentase',
-                        name: 'presentase'
-                    },
-                    {
-                        data: 'kontak',
-                        name: 'kontak'
-                    },
-                    {
-                        data: 'alamat',
-                        name: 'alamat'
-                    },
-                    {
-                        data: 'created_at',
-                        name: 'created_at'
-                    }
-                ]
-            });
-        });
-    </script>
 @endsection

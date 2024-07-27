@@ -19,11 +19,15 @@ class DataKesehatanController extends Controller
      */
     public function index(Request $request)
     {
-        // dd($request);
-        // if ($request->ajax) {
         $this->authorize('kelurahan');
-        $data = Anak::all();
 
+        $query = Anak::query();
+
+        if ($request->has('usia') && $request->usia != null) {
+            $query->where('usia', '=', $request->usia);
+        }
+
+        $data = $query->get();
 
         return view('kelurahan/dataKesehatan/index', compact('data'));
     }
