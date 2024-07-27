@@ -9,6 +9,7 @@ use App\Models\TingkatDepresi;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Termwind\Components\Raw;
 
 class DashboardController extends Controller
 {
@@ -37,9 +38,15 @@ class DashboardController extends Controller
             ->groupBy('penyakit')
             ->get();
 
+        $usiaData = DB::table('anaks')
+            ->select(DB::raw('penyakit, CASE WHEN usia < 2 THEN "Usia < 2" ELSE "Usia >= 2" END as usia_kategori, COUNT(*) as jumlah'))
+            ->groupBy('penyakit', 'usia_kategori')
+            ->get();
+
         return response()->json([
             'barData' => $barData,
             'doughnutData' => $doughnutData,
+            'usiaData' => $usiaData
         ]);
     }
 }
