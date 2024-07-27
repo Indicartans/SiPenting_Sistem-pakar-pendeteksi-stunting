@@ -285,9 +285,34 @@ class DiagnosaController extends Controller
      * @param  \App\Models\Diagnosa  $diagnosa
      * @return \Illuminate\Http\Response
      */
-    public function show(Diagnosa $diagnosa)
+    public function show($diagnosa_id)
     {
-        //
+        // dd($diagnosa);
+        $diagnosa = Diagnosa::where('diagnosa_id', $diagnosa_id)->first();
+        $gejala = json_decode($diagnosa->kondisi, true);
+        $data_diagnosa = json_decode($diagnosa->data_diagnosa, true);
+        // dd($gejala);
+
+        $int = 0.0;
+        $diagnosa_dipilih = [];
+        foreach ($data_diagnosa as $val) {
+            // print_r(floatval($val["value"]));
+            if (floatval($val["value"]) > $int) {
+                $diagnosa_dipilih["value"] = floatval($val["value"]);
+                $diagnosa_dipilih["kode_depresi"] = TingkatDepresi::where("kode_depresi", $val["kode_depresi"])->first();
+                $int = floatval($val["value"]);
+            }
+        }
+        // dd($diagnosa_dipilih);
+
+        $kodeGejala = [];
+        foreach ($gejala as $key) {
+            array_push($kodeGejala, $key[0]);
+        }
+        // dd($gejala, $diagnosa_dipilih, $diagnosa);
+        // dd($detail->data_diagnosa);
+
+        return view("admin.diagnosa.detail_diagnosa", compact('gejala', 'diagnosa_dipilih', 'diagnosa'));
     }
 
     /**

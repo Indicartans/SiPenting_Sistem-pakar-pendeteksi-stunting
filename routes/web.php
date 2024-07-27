@@ -103,7 +103,9 @@ Route::get('artikel/{slug}', [HomeArtikelController::class, 'show'])->name('arti
 Route::resource('/kesehatan', DataKesehatanController::class);
 Route::get('/kesehatan/data', [DataKesehatanController::class, 'getData'])->name('data.anak');
 Route::get('/downloadpdf', [DataKesehatanController::class, 'generatePDF'])->name('download.pdf');
+
 Route::get('/tes', function () {
     Artisan::call('storage:link');
 });
+
 Auth::routes();

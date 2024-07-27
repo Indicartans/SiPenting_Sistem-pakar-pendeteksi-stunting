@@ -28,50 +28,50 @@
                             <div class="col-12">
                                 <div class="card recent-sales overflow-auto">
                                     <div class="card-body">
-                                        <h5 class="card-title">Hasil <span>| Diagnosa</span></h5>
+                                        <h5 class="card-title">Detail <span>| Diagnosa</span></h5>
 
                                         <table class="table table-borderless datatable">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">No</th>
-                                                    <th scope="col">Diagnosa Id</th>
+                                                    <th>Tanggal Diagnosa</th>
                                                     <th scope="col">Nama Penyakit</th>
                                                     <th scope="col">Persentase</th>
-                                                    <th scope="col"></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($diagnosa as $item)
-                                                    <?php $int = 0; ?>
-                                                    <?php $data_diagnosa = json_decode($item->data_diagnosa, true); ?>
-                                                    <?php foreach ($data_diagnosa as $val) {
-                                                        if (floatval($val['value']) > $int) {
-                                                            $diagnosa_dipilih['value'] = floatval($val['value']);
-                                                            $diagnosa_dipilih['kode_depresi'] = App\Models\TingkatDepresi::where('kode_depresi', $val['kode_depresi'])->first();
-                                                            $int = floatval($val['value']);
-                                                        }
-                                                    } ?>
-                                                    <tr>
-                                                        <th scope="row">{{ $loop->iteration }}</th>
-                                                        <td>{{ $item->diagnosa_id }}</td>
-                                                        <td> {{ $diagnosa_dipilih['kode_depresi']->kode_depresi }} |
-                                                            {{ $diagnosa_dipilih['kode_depresi']->depresi }}</td>
-                                                        <td>{{ $diagnosa_dipilih['value'] * 100 }} %</td>
-                                                        <td><a class="p-2" href="spk/{{ $item->diagnosa_id }}">Detail</a>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
+                                                <tr>
+                                                    <td>{{ $diagnosa->created_at->format('d M Y') }}</td>
+                                                    <td>{{ $diagnosa_dipilih['kode_depresi']->depresi }}</td>
+                                                    <td>{{ number_format($diagnosa_dipilih['value'] * 100, 2) }}%</td>
+                                                </tr>
                                             </tbody>
                                         </table>
 
+                                        <h5 class="card-title">Gejala <span>| Diagnosa</span></h5>
+
+                                        <table class="table table-borderless datatable">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th scope="col">Gejala</th>
+                                                    <th scope="col">CF Pasien</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($gejala as $item)
+                                                    <tr>
+                                                        <td>{{ $loop->iteration }}</td>
+                                                        <td class="gejala">{{ $item[0] }}</td>
+                                                        <td>{{ $item[1] }}</td>
+                                                    </tr>
+                                                @endforeach
+
+                                            </tbody>
+                                        </table>
                                     </div>
 
                                 </div>
                             </div>
-                            {{-- <div class="d-flex justify-content-center">
-                                {{ $depresi->links('pagination::simple-bootstrap-5') }}
-                            </div> --}}
-                            @include('components.admin_modal_depresi_edit')
                         </div>
 
                     </div>
@@ -80,6 +80,4 @@
         </section>
 
     </main><!-- End #main -->
-
-
 @endsection
