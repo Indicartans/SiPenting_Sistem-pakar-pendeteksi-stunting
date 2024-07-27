@@ -25,7 +25,7 @@ class DataKesehatanController extends Controller
         $data = Anak::all();
 
 
-        return view('kelurahan.dataKesehatan.index', compact('data'));
+        return view('kelurahan/dataKesehatan/index', compact('data'));
     }
 
     public function getData(Request $request)

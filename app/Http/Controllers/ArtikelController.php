@@ -24,7 +24,7 @@ class ArtikelController extends Controller
 
         $keterangan = Artikel::with('depresi')->get();
         $penyakit = TingkatDepresi::all();
-        return view('admin.keterangan.keterangan', compact('keterangan', 'penyakit'));
+        return view('admin/keterangan/keterangan', compact('keterangan', 'penyakit'));
     }
 
     /**

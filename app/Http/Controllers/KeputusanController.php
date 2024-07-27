@@ -23,7 +23,7 @@ class KeputusanController extends Controller
         $pengetahuan = Keputusan::with(['gejala', 'depresi'])->paginate(15);
         $penyakit = TingkatDepresi::all();
         $gejala = Gejala::all();
-        return view('admin.pengetahuan.pengetahuan', compact('pengetahuan', 'penyakit', 'gejala'));
+        return view('admin/pengetahuan/pengetahuan', compact('pengetahuan', 'penyakit', 'gejala'));
     }
 
     /**

@@ -21,7 +21,7 @@ class DashboardController extends Controller
         $tingkat_depresi = TingkatDepresi::all();
 
         // Kirim data ke tampilan
-        return view('admin.dashboard', compact('gejala', 'kondisi_user', 'user', 'tingkat_depresi'));
+        return view('admin/dashboard', compact('gejala', 'kondisi_user', 'user', 'tingkat_depresi'));
     }
 
     public function chartData()

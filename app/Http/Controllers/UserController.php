@@ -16,7 +16,7 @@ class UserController extends Controller
     {
         $this->authorize('pakar');
         $user = User::all();
-        return view('admin.User.list_admin', compact('user'));
+        return view('admin/User/list_admin', compact('user'));
     }
 
     /**
@@ -27,7 +27,7 @@ class UserController extends Controller
     public function create()
     {
         $role = User::pluck('role');
-        return view('admin.User.add_admin', compact('role'));
+        return view('admin/User/add_admin', compact('role'));
     }
 
     /**

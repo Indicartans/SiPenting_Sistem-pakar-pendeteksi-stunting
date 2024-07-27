@@ -33,7 +33,7 @@ class DiagnosaController extends Controller
         $this->authorize('pakar');
         $diagnosa = Diagnosa::all();
 
-        return view('admin.diagnosa.admin_semua_diagnosa', [
+        return view('admin/diagnosa/admin_semua_diagnosa', [
             "diagnosa" => $diagnosa,
         ]);
     }
@@ -50,7 +50,7 @@ class DiagnosaController extends Controller
             'kondisi_user' => KondisiUser::all()
         ];
 
-        return view('clients.form_diagnosa', $data);
+        return view('clients/form_diagnosa', $data);
     }
 
     /**

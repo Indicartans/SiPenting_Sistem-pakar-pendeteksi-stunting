@@ -4,21 +4,22 @@ use App\Models\User;
 use App\Models\Gejala;
 use App\Models\Diagnosa;
 use App\Models\KondisiUser;
+use Illuminate\Http\Request;
 use App\Models\TingkatDepresi;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\FormController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\GejalaController;
 use App\Http\Controllers\ArtikelController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DataKesehatanController;
 use App\Http\Controllers\DiagnosaController;
-use App\Http\Controllers\FormController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KeputusanController;
 use App\Http\Controllers\HomeArtikelController;
-use App\Http\Controllers\TingkatDepresiController;
-use App\Http\Controllers\UserController;
 // use Clockwork\Request\Request;
-use Illuminate\Http\Request;
+use App\Http\Controllers\DataKesehatanController;
+use App\Http\Controllers\TingkatDepresiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,4 +103,7 @@ Route::get('artikel/{slug}', [HomeArtikelController::class, 'show'])->name('arti
 Route::resource('/kesehatan', DataKesehatanController::class);
 Route::get('/kesehatan/data', [DataKesehatanController::class, 'getData'])->name('data.anak');
 Route::get('/downloadpdf', [DataKesehatanController::class, 'generatePDF'])->name('download.pdf');
+Route::get('/tes', function () {
+    Artisan::call('storage:link');
+});
 Auth::routes();

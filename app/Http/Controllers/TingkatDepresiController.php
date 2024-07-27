@@ -17,7 +17,7 @@ class TingkatDepresiController extends Controller
     {
         $this->authorize('pakar');
 
-        return view('admin.depresi.depresi', [
+        return view('admin/depresi/depresi', [
             'depresi' => TingkatDepresi::all()
         ]);
     }

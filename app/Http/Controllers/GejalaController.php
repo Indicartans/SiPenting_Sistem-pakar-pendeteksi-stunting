@@ -19,7 +19,7 @@ class GejalaController extends Controller
         $this->authorize('pakar');
 
         $gejala = Gejala::paginate(15);
-        return view('admin.gejala.gejala', compact('gejala'));
+        return view('admin/Gejala/gejala', compact('gejala'));
     }
 
     /**

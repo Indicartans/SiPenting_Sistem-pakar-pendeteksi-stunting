@@ -16,7 +16,7 @@ class HomeArtikelController extends Controller
     public function index()
     {
         $artikel = Artikel::all();
-        return view('artikel.artikel', compact('artikel'));
+        return view('artikel/artikel', compact('artikel'));
     }
 
     /**
