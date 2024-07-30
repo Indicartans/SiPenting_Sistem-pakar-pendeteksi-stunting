@@ -3,7 +3,7 @@ SiPenting (Sistem Pendeteksi Stunting) adalah sebuah aplikasi yang menggunakan m
 
 ## Menjalankan Program
 
-1. **Salin file .env.example menjadi .env dan lakukan pengaturan**
+1. **Salin file Copy.env menjadi .env dan lakukan pengaturan**
     ```bash
     cp .env.example .env
     ```
