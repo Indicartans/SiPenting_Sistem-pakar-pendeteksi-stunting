@@ -12,6 +12,7 @@ use App\Models\Keputusan;
 use App\Models\Kode_Gejala;
 use App\Models\KondisiUser;
 use App\Models\TingkatDepresi;
+use GeminiAPI\Laravel\Facades\Gemini;
 use GuzzleHttp\Middleware;
 use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
@@ -237,6 +238,10 @@ class DiagnosaController extends Controller
         // dd($hasil);
         $artikel = Artikel::where('kode_depresi', $kode_depresi)->first();
 
+        $rekomendasi = Gemini::generateText("saya terdiagnosa penyakit" . $diagnosa_dipilih['kode_depresi']->depresi . "dengan tingkat kepastian" . round($hasil['value'] * 100, 2) . "berikan saya saran yang harus saya lakukan dan berikan contoh makanan atau suplemen yang harus saya konsumsi");
+        // dd($rekomendasi);
+        $rekomendasiPretty = json_encode($rekomendasi, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
         Anak::create([
             'nama_orangtua' => $data_anak["nama_orangtua"],
             'nama_anak' => $data_anak["nama_anak"],
@@ -257,7 +262,8 @@ class DiagnosaController extends Controller
             "cf_kombinasi" => $cfKombinasi,
             "hasil" => $hasil,
             "artikel" => $artikel,
-            "data_anak" =>  $data_anak
+            "data_anak" =>  $data_anak,
+            'rekomendasi' => $rekomendasiPretty
         ]);
     }
 

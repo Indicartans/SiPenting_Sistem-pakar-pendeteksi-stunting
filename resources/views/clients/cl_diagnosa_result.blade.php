@@ -28,7 +28,7 @@
                                 Hasil Diagnosa
                             </div>
                             <div class="card-body">
-                                <table class="table">
+                                <table class="table" id="gejala">
                                     <thead>
                                         <tr>
                                             <th scope="col">No</th>
@@ -72,7 +72,7 @@
                                         </tr>
                                         <tr>
                                             <td>Usia</td>
-                                            <td>{{ $data_anak['usia'] }}</td>
+                                            <td>{{ $data_anak['usia'] }} tahun</td>
                                         </tr>
                                         <tr>
                                             <td>Kontak</td>
@@ -97,12 +97,38 @@
                                 {{-- @endguest --}}
                                 <div class="text-justify">
                                     <h5 class="mx-auto my-1 fw-semibold">Detail</h5>
-                                    <p class="fw-semibold my-2 py-2">{{ $artikel->isi }}</p>
+                                    <p class="fw-normal my-2 py-2">{{ $artikel->isi }}</p>
                                 </div>
-                                <div class="text-justify">
+                                {{-- <div class="text-justify">
                                     <h5 class="mx-auto my-1 fw-semibold">Saran</h5>
-                                    <p class="fw-semibold my-2 py-2">{{ $artikel->saran }}</p>
+                                    <p class="fw-normal my-2 py-2">{{ $artikel->saran }}</p>
+                                </div> --}}
+
+                                <div class="text-justify">
+                                    <h5 class="mx-auto my-1 fw-semibold">Rekomendasi</h5>
+
+                                    <p class="fw-normal my-2 py-2"> @php
+                                        // Decode JSON string to PHP array
+                                        $decodedRekomendasi = json_decode($rekomendasi, true);
+
+                                        // Convert JSON array back to formatted JSON string
+                                        $prettyRekomendasi = json_encode(
+                                            $decodedRekomendasi,
+                                            JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE,
+                                        );
+
+                                        // Process the string to replace escape characters with HTML tags
+                                        $formattedRekomendasi = nl2br(e($prettyRekomendasi)); // Handle new lines
+                                        $formattedRekomendasi = str_replace(
+                                            ['\\n', '\\*\\*', '\\*', '*'],
+                                            ['<br>', '<b>', '</b>', ' '],
+                                            $formattedRekomendasi,
+                                        ); // Replace other escape characters
+                                    @endphp
+                                        {!! $formattedRekomendasi !!}
+                                    </p>
                                 </div>
+
                                 <div class="text-justify">
                                     {{-- <h5 class="mx-auto my-1 fw-semibold">Saran</h5> --}}
                                     {{-- <p class="my-2 py-2 card-link"></p> --}}
@@ -133,6 +159,7 @@
 @endsection
 
 @section('external_js')
+
     <script>
         // Data mapping dari kode ke deskripsi gejala
         const gejalaDescriptions = {

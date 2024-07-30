@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Termwind\Components\Raw;
+use GeminiAPI\Laravel\Facades\Gemini;
 
 class DashboardController extends Controller
 {
@@ -21,8 +22,10 @@ class DashboardController extends Controller
         $user = User::all();
         $tingkat_depresi = TingkatDepresi::all();
 
+        $test = Gemini::generateText('apa kabar sayang?');
+        // dd($test);
         // Kirim data ke tampilan
-        return view('admin/dashboard', compact('gejala', 'kondisi_user', 'user', 'tingkat_depresi'));
+        return view('admin/dashboard', compact('gejala', 'kondisi_user', 'user', 'tingkat_depresi', 'test'));
     }
 
     public function chartData()

@@ -22,72 +22,8 @@
                 <section id="faq" class="bg-light py-5 rounded">
                     <div class="container">
                         <h2 class="text-center mb-5 entry-title" style="color: #055596">Data Diri Anak</h2>
-                        {{-- <div class="accordion" id="faqAccordion">
-                            <div class="card mb-3">
-                                <div class="card-header" id="headingOne">
-                                    <h2 class="mb-0">
-                                        <button class="btn btn-link text-decoration-none" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
-                                            aria-controls="collapseOne">
-                                            Apa itu Sipenting?
-                                        </button>
-                                    </h2>
-                                </div>
-                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                                    data-parent="#faqAccordion">
-                                    <div class="card-body">
-                                        SiPenting adalah aplikasi yang dirancang untuk membantu orang tua dalam
-                                        mendeteksi potensi stunting pada anak dengan menyediakan sebuah sistem
-                                        pakar yang memungkinkan pengguna untuk mengukur risiko stunting. Kami
-                                        percaya bahwa mendeteksi dini potensi stunting adalah langkah penting
-                                        dalam mencegah dampak jangka panjangnya pada pertumbuhan dan
-                                        perkembangan anak. Selain itu, kami juga menyediakan informasi dan
-                                        sumber daya yang berguna untuk membantu orang tua dalam mengelola serta
-                                        mengatasi risiko stunting pada anak.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card mb-3">
-                                <div class="card-header" id="headingThree">
-                                    <h2 class="mb-0">
-                                        <button class="btn btn-link text-decoration-none" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
-                                            aria-controls="collapseThree">
-                                            Apakah hasil dari SiPenting dapat diandalkan?
-                                        </button>
-                                    </h2>
-                                </div>
-                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                    data-parent="#faqAccordion">
-                                    <div class="card-body">
-                                        Hasil dari SiPenting adalah sebuah estimasi dari tingkat terjadinya
-                                        stunting pada anak, dan tidak bisa dianggap sebagai diagnosis yang
-                                        pasti. Kami sangat menyarankan agar tetap konsultasi dokter profesional.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card mb-3">
-                                <div class="card-header" id="headingFour">
-                                    <h2 class="mb-0">
-                                        <button class="btn btn-link text-decoration-none" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
-                                            aria-controls="collapseFour">
-                                            Bagaimana cara mengakses solusi yang ditawarkan SiPenting?
-                                        </button>
-                                    </h2>
-                                </div>
-                                <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
-                                    data-parent="#faqAccordion">
-                                    <div class="card-body">
-                                        Setelah mengisi formulir, pengguna akan menerima rekomendasi solusi
-                                        sesuai dengan penyakit yang terdeteksi. Kami juga menyediakan tautan ke
-                                        sumber informasi dan bantuan profesional yang dapat membantu pengguna.
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
                         <div class="row mb-3">
-                            <p class="fw-norma text-center" style="color: black">Silahkan isi data diri anak anda
+                            <p class="fw-norma text-center" style="color: black">Silahkan isi data anak
                             </p>
                             {{-- @if (session()->has('pesan'))
                                 {!! session('pesan') !!}
@@ -146,6 +82,78 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="row mb-3">
+                                <label for="berat_badan"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Berat Badan') }}</label>
+                                <div class="col-md-6">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <input id="berat_badan" type="text"
+                                            class="form-control @error('berat_badan') is-invalid @enderror"
+                                            name="berat_badan" required autocomplete="name" autofocus>
+                                        <p class="fw-bold mb-0 ms-2" style="color: black">kg</p>
+                                    </div>
+                                    @error('berat_badan')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="tinggi_badan"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Tinggi Badan') }}</label>
+                                <div class="col-md-6">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <input id="tinggi_badan" type="text"
+                                            class="form-control @error('tinggi_badan') is-invalid @enderror"
+                                            name="tinggi_badan" required autocomplete="name" autofocus>
+                                        <p class="fw-bold mb-0 ms-2" style="color: black">cm</p>
+                                    </div>
+
+                                    @error('tinggi_badan')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="lingkar_lengan"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Lingkar Lengan') }}</label>
+                                <div class="col-md-6">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <input id="lingkar_lengan" type="text"
+                                            class="form-control @error('lingkar_lengan') is-invalid @enderror"
+                                            name="lingkar_lengan" required autocomplete="name" autofocus>
+                                        <p class="fw-bold mb-0 ms-2" style="color: black">cm</p>
+                                    </div>
+
+                                    @error('lingkar_lengan')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="lingkar_kepala"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Lingkar Kepala') }}</label>
+                                <div class="col-md-6">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <input id="lingkar_kepala" type="text"
+                                            class="form-control @error('lingkar_kepala') is-invalid @enderror"
+                                            name="lingkar_kepala" required autocomplete="name" autofocus>
+                                        <p class="fw-bold mb-0 ms-2" style="color: black">cm</p>
+                                    </div>
+
+                                    @error('lingkar_kepala')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
                             <div class="row mb-3">
                                 <label for="kontak"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Kontak') }}</label>
