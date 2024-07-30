@@ -184,7 +184,6 @@
                             </div>
                         </div>
 
-
                         <div class='gform_page_footer top_label d-flex justify-content-end'>
                             {{-- <a href="/form" id="nextbtn" class='btn btn-primary'>Next</a> --}}
                             <button type="submit" class="btn btn-primary">Next</button>
@@ -194,18 +193,4 @@
             </form>
         </div>
     </section>
-@endsection
-
-@section('external_js')
-    {{-- <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const usiaSelected = getElementById('usia');
-            const button = getElementById('nextbtn');
-
-            usiaSelected.addEventListener('change', function() {
-                const selectedValue = usiaSelected.value;
-                button.href = `form?usia=${selectedValue}`
-            })
-        })
-    </script> --}}
 @endsection

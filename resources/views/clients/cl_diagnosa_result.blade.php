@@ -75,6 +75,22 @@
                                             <td>{{ $data_anak['usia'] }} tahun</td>
                                         </tr>
                                         <tr>
+                                            <td>Berat Badan</td>
+                                            <td>{{ $data_anak['berat_badan'] }} kg</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tinggi Badan</td>
+                                            <td>{{ $data_anak['tinggi_badan'] }} cm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lingkar Lengan</td>
+                                            <td>{{ $data_anak['lingkar_lengan'] }} cm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lingkar kepala</td>
+                                            <td>{{ $data_anak['lingkar_kepala'] }} cm</td>
+                                        </tr>
+                                        <tr>
                                             <td>Kontak</td>
                                             <td>{{ $data_anak['kontak'] }}</td>
                                         </tr>

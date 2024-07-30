@@ -207,6 +207,10 @@
                                     class='gform_fields top_label form_sublabel_below description_above'>
                                     <input type="hidden" name="nama_orangtua" value="{{ $dataAnak->nama_orangtua }}">
                                     <input type="hidden" name="nama_anak" value="{{ $dataAnak->nama_anak }}">
+                                    <input type="hidden" name="berat_badan" value="{{ $dataAnak->berat_badan }}">
+                                    <input type="hidden" name="tinggi_badan" value="{{ $dataAnak->tinggi_badan }}">
+                                    <input type="hidden" name="lingkar_lengan" value="{{ $dataAnak->lingkar_lengan }}">
+                                    <input type="hidden" name="lingkar_kepala" value="{{ $dataAnak->lingkar_kepala }}">
                                     <input type="hidden" name="usia" value="{{ $dataAnak->usia }}">
                                     <input type="hidden" name="kontak" value="{{ $dataAnak->kontak }}">
                                     <input type="hidden" name="alamat" value="{{ $dataAnak->alamat }}">
@@ -214,7 +218,8 @@
                                         <li id="field_{{ $loop->iteration }}"
                                             class="gfield question gfield_contains_required field_sublabel_below field_description_above gfield_visibility_visible"
                                             data-js-reload="field_{{ $loop->iteration }}">
-                                            <label class='gfield_label'>{{ $loop->iteration }}. Apakah anda merasa anak anda
+                                            <label class='gfield_label'>{{ $loop->iteration }}. Apakah anda merasa anak
+                                                anda
                                                 {{ $item->gejala }}?</label>
                                             <div class='ginput_container ginput_container_radio'>
                                                 <ul class='gfield_radio' id='input_{{ $loop->iteration }}'>

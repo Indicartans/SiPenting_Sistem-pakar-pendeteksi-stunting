@@ -123,6 +123,10 @@ class DiagnosaController extends Controller
         $dataAnak = [
             'nama_orangtua' => $request->nama_orangtua,
             'nama_anak' => $request->nama_anak,
+            'berat_badan' => $request->berat_badan,
+            'tinggi_badan' => $request->tinggi_badan,
+            'lingkar_lengan' => $request->lingkar_lengan,
+            'lingkar_kepala' => $request->lingkar_kepala,
             'usia' => $request->usia,
             'kontak' => $request->kontak,
             'alamat' => $request->alamat
@@ -251,7 +255,7 @@ class DiagnosaController extends Controller
             'kontak' => $data_anak["kontak"],
             'alamat' => $data_anak["alamat"]
         ]);
-
+        // dd($data_anak);
         return view('clients.cl_diagnosa_result', [
             "diagnosa" => $diagnosa,
             "diagnosa_dipilih" => $diagnosa_dipilih,
