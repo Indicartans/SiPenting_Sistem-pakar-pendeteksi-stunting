@@ -110,6 +110,27 @@
                                     yaitu
                                     <span class="fw-bold fs-4">{{ round($hasil['value'] * 100, 2) }}</span> %
                                 </p>
+                                @if (round($hasil['value'] * 100, 2) > 80)
+                                    <p class="fw-normal">Pasien memiliki kemungkinan sangat tinggi terkena penyakit
+                                        {{ $diagnosa_dipilih['kode_depresi']->depresi }}. Kami sangat menyarankan Anda
+                                        segera berkonsultasi dengan tenaga medis profesional untuk mendapatkan pemeriksaan
+                                        dan penanganan lebih lanjut.</p>
+                                @elseif (round($hasil['value'] * 100, 2) > 60)
+                                    <p class="fw-normal">Pasien memiliki kemungkinan tinggi terkena penyakit
+                                        {{ $diagnosa_dipilih['kode_depresi']->depresi }}. Sebaiknya lakukan pemeriksaan
+                                        lebih lanjut dengan dokter untuk memastikan kondisi dan mendapatkan perawatan yang
+                                        tepat.</p>
+                                @elseif (round($hasil['value'] * 100, 2) > 40)
+                                    <p class="fw-normal">Pasien mungkin berisiko terkena penyakit
+                                        {{ $diagnosa_dipilih['kode_depresi']->depresi }}. Kami menyarankan untuk melakukan
+                                        pemeriksaan lebih lanjut dengan tenaga medis untuk mengonfirmasi kondisi dan
+                                        menentukan langkah selanjutnya.</p>
+                                @else
+                                    <p class="fw-normal">Pasien memiliki kemungkinan kecil terkena penyakit
+                                        {{ $diagnosa_dipilih['kode_depresi']->depresi }}. Tetap jaga kesehatan dan berikan
+                                        makanan yang bergizi, konsultasikan ke dokter apabila diperlukan.</p>
+                                @endif
+
                                 {{-- @endguest --}}
                                 <div class="text-justify">
                                     <h5 class="mx-auto my-1 fw-semibold">Detail</h5>
