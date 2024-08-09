@@ -9,18 +9,9 @@ use App\Models\Anak;
 use App\Models\Artikel;
 use App\Models\Gejala;
 use App\Models\Keputusan;
-use App\Models\Kode_Gejala;
 use App\Models\KondisiUser;
 use App\Models\TingkatDepresi;
 use GeminiAPI\Laravel\Facades\Gemini;
-use GuzzleHttp\Middleware;
-use Illuminate\Console\View\Components\Alert;
-use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\DB;
-
-use function PHPSTORM_META\map;
-use function PHPSTORM_META\type;
 
 class DiagnosaController extends Controller
 {
