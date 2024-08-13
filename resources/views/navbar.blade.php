@@ -22,13 +22,13 @@
                         href="/artikel">Artikel</a>
                 </li>
 
-                {{-- <li class="nav-item">
-                    <a class="nav-link click-scroll" href="#faq">FAQ</a>
-                </li> --}}
-
                 <li class="nav-item">
-                    <a class="nav-link click-scroll {{ Request::is('/#section_4') ? 'active' : 'inactive' }}"
+                    <a class="nav-link click-scroll {{ Request::is('#section_4') ? 'active' : 'inactive' }}"
                         href="/#section_4">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll {{ Request::is('psn') ? 'active' : 'inactive' }}"
+                        href="/psn">Lapor PSN</a>
                 </li>
             </ul>
 

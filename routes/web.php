@@ -19,6 +19,7 @@ use App\Http\Controllers\KeputusanController;
 use App\Http\Controllers\HomeArtikelController;
 // use Clockwork\Request\Request;
 use App\Http\Controllers\DataKesehatanController;
+use App\Http\Controllers\PsnController;
 use App\Http\Controllers\TingkatDepresiController;
 
 /*
@@ -69,23 +70,6 @@ Route::middleware('auth')->group(function () {
 Route::get('/form', [FormController::class, 'index']);
 Route::post('/form', [FormController::class, 'index']);
 
-// Route::get('/form', function (Request $request) {
-//     // $usia = $request->query('usia');
-//     dd($request->all());
-//     $data = [
-//         'gejala' => Gejala::all(),
-//         'kondisi_user' => KondisiUser::all()
-//     ];
-//     return view('form', $data);
-// })->name('form');
-
-// Route::post('/form', function (Request $request) {
-//     $usia = $request->input('usia');
-//     // dd($usia);
-
-//     return redirect()->route('form')->with('usia', $usia);
-// });
-
 Route::get('/form-faq', function () {
     $data = [
         'gejala' => Gejala::all(),
@@ -95,6 +79,8 @@ Route::get('/form-faq', function () {
     return view('faq', $data);
 })->name('cl.form');
 
+Route::resource('/psn', PsnController::class);
+
 Route::resource('/spk', DiagnosaController::class);
 Route::get('/spk/result/{diagnosa_id}', [DiagnosaController::class, 'diagnosaResult'])->name('spk.result');
 Route::resource('/artikel', HomeArtikelController::class);
@@ -103,6 +89,7 @@ Route::get('artikel/{slug}', [HomeArtikelController::class, 'show'])->name('arti
 Route::resource('/kesehatan', DataKesehatanController::class);
 Route::get('/kesehatan/data', [DataKesehatanController::class, 'getData'])->name('data.anak');
 Route::get('/downloadpdf', [DataKesehatanController::class, 'generatePDF'])->name('download.pdf');
+
 
 Route::get('/tes', function () {
     Artisan::call('storage:link');

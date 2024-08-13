@@ -127,7 +127,6 @@
                                             name="lingkar_lengan" required autocomplete="name" autofocus>
                                         <p class="fw-bold mb-0 ms-2" style="color: black">cm</p>
                                     </div>
-
                                     @error('lingkar_lengan')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -185,7 +184,6 @@
                         </div>
 
                         <div class='gform_page_footer top_label d-flex justify-content-end'>
-                            {{-- <a href="/form" id="nextbtn" class='btn btn-primary'>Next</a> --}}
                             <button type="submit" class="btn btn-primary">Next</button>
                         </div>
                     </div>
