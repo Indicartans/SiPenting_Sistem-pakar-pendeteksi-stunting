@@ -71,6 +71,14 @@
                     <span>Data Kesehatan</span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ request()->is('lapor/psn') ? '' : 'collapsed' }} {{ request()->is('lapor/psn') ? 'active' : '' }}"
+                    href="/lapor/psn">
+                    <i class="bi bi-broadcast-pin"></i>
+                    <span>Laporan PSN</span>
+                </a>
+            </li>
         @endcan
 
         <li class="nav-heading">Pengaturan</li>

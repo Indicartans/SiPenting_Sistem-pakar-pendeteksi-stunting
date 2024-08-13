@@ -19,6 +19,7 @@ use App\Http\Controllers\KeputusanController;
 use App\Http\Controllers\HomeArtikelController;
 // use Clockwork\Request\Request;
 use App\Http\Controllers\DataKesehatanController;
+use App\Http\Controllers\KelurahanPsnController;
 use App\Http\Controllers\PsnController;
 use App\Http\Controllers\TingkatDepresiController;
 
@@ -79,7 +80,7 @@ Route::get('/form-faq', function () {
     return view('faq', $data);
 })->name('cl.form');
 
-Route::resource('/psn', PsnController::class);
+
 
 Route::resource('/spk', DiagnosaController::class);
 Route::get('/spk/result/{diagnosa_id}', [DiagnosaController::class, 'diagnosaResult'])->name('spk.result');
@@ -90,6 +91,8 @@ Route::resource('/kesehatan', DataKesehatanController::class);
 Route::get('/kesehatan/data', [DataKesehatanController::class, 'getData'])->name('data.anak');
 Route::get('/downloadpdf', [DataKesehatanController::class, 'generatePDF'])->name('download.pdf');
 
+Route::resource('/psn', PsnController::class);
+Route::resource('/lapor/psn', KelurahanPsnController::class);
 
 Route::get('/tes', function () {
     Artisan::call('storage:link');
