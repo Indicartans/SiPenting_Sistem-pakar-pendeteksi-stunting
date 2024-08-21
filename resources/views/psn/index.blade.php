@@ -17,7 +17,7 @@
 @section('content')
     <section class="barista-section section-padding section-bg m-0" id="barista-team">
         <div class="container mt-5">
-            <form method='POST' action="{{ route('psn.store') }}">
+            <form method='POST' action="psn">
                 @csrf
                 <section id="faq" class="bg-light py-5 rounded">
                     <div class="container">

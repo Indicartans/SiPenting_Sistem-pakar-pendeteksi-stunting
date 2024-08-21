@@ -46,10 +46,6 @@ class PsnController extends Controller
             // 'penyakit' => 'required',
         ]);
 
-        if ($request->penyakit == null) {
-            $request->penyakit = '-';
-        };
-
         Psn::create([
             'pelapor' => $request->pelapor,
             'nama' => $request->nama,

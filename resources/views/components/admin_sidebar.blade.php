@@ -73,8 +73,8 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link {{ request()->is('lapor/psn') ? '' : 'collapsed' }} {{ request()->is('lapor/psn') ? 'active' : '' }}"
-                    href="/lapor/psn">
+                <a class="nav-link {{ request()->is('laporan') ? '' : 'collapsed' }} {{ request()->is('laporan') ? 'active' : '' }}"
+                    href="/laporan">
                     <i class="bi bi-broadcast-pin"></i>
                     <span>Laporan PSN</span>
                 </a>

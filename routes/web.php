@@ -92,7 +92,7 @@ Route::get('/kesehatan/data', [DataKesehatanController::class, 'getData'])->name
 Route::get('/downloadpdf', [DataKesehatanController::class, 'generatePDF'])->name('download.pdf');
 
 Route::resource('/psn', PsnController::class);
-Route::resource('/lapor/psn', KelurahanPsnController::class);
+Route::resource('/laporan', KelurahanPsnController::class);
 
 Route::get('/tes', function () {
     Artisan::call('storage:link');
