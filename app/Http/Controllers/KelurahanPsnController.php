@@ -12,9 +12,15 @@ class KelurahanPsnController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Psn::all();
+        $query = Psn::query();
+
+        if ($request->has('rw') && $request->rw != null) {
+            $query->where('rw', '=', $request->rw);
+        }
+
+        $data = $query->get();
         // dd($data);
         return view('kelurahan.psn.index', compact('data'));
     }

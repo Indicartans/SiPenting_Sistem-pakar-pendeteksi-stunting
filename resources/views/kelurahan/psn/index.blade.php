@@ -35,26 +35,21 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Data <span>| Kesehatan</span></h5>
                                         <div class="mb-3 d-flex justify-content-end">
-                                            <form action="{{ route('kesehatan.index') }}" method="GET"
+                                            <form action="{{ route('laporan.index') }}" method="GET"
                                                 class="d-flex align-items-center">
-                                                <select name="usia" class="form-select"
+                                                <select name="rw" class="form-select"
                                                     aria-label="Default select example">
-                                                    <option selected disabled>Filter Berdasarkan Usia</option>
+                                                    <option selected disabled>Filter Berdasarkan RW</option>
                                                     <option value="">Tampilkan semua</option>
-                                                    <option value="1">1 Tahun</option>
-                                                    <option value="2">2 Tahun</option>
-                                                    <option value="3">3 Tahun</option>
-                                                    <option value="4">4 Tahun</option>
-                                                    <option value="5">5 Tahun</option>
+                                                    <option value="01">RW 01</option>
+                                                    <option value="02">RW 02</option>
+                                                    <option value="03">RW 03</option>
+                                                    <option value="04">RW 04</option>
+                                                    <option value="05">RW 05</option>
                                                 </select>
                                                 <button type="submit" class="btn btn-primary ms-1"><i
                                                         class="bi bi-filter"></i></button>
                                             </form>
-                                            <a href="{{ route('download.pdf') }}">
-                                                <button class="btn btn-danger ms-3">
-                                                    <i class="bi bi-filetype-pdf"></i> Export PDF
-                                                </button>
-                                            </a>
                                         </div>
 
                                         <table class="table table-borderless datatable" id="tabel_kesehatan">
@@ -72,7 +67,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($data as $item)
+                                                @forelse ($data as $item)
                                                     <tr>
                                                         <th> {{ $loop->iteration }}</th>
                                                         <th> {{ $item->created_at->format('d M Y') }}</th>
@@ -84,7 +79,11 @@
                                                         <th> {{ $item->penyakit ?: '-' }}</th>
                                                         <th> {{ $item->jumlah ?: '-' }}</th>
                                                     </tr>
-                                                @endforeach
+                                                @empty
+                                                    <tr>
+                                                        <td colspan="9" class="text-center">Data tidak ada</td>
+                                                    </tr>
+                                                @endforelse
                                             </tbody>
                                         </table>
                                     </div>
