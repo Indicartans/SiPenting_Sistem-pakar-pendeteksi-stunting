@@ -12,6 +12,12 @@ class KelurahanPsnController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->authorize('kelurahan');
+    }
+
     public function index(Request $request)
     {
         $query = Psn::query();
